@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Combined Search</title>
+</head>
+<body>
+    <!-- Форма поиска компаний -->
+    <form id="companySearchForm">
+        <input type="text" id="name" placeholder="Name">
+        <input type="text" id="city" placeholder="City">
+        <input type="text" id="country" placeholder="Country">
+        <input type="text" id="address" placeholder="Address">
+        <input type="text" id="emailOrWebsite" placeholder="Email or Website">
+        <input type="text" id="nationalId" placeholder="National ID">
+        <input type="text" id="phoneOrFax" placeholder="Phone or Fax">
+        <input type="text" id="postCode" placeholder="Post Code">
+        <input type="text" id="state" placeholder="State">
+        <input type="text" id="ticker" placeholder="Ticker">
+        <input type="text" id="isin" placeholder="ISIN">
+        <input type="text" id="orbisId" placeholder="Orbis ID">
+        <label for="excludeSearch">Виключити з пошуку:</label>    
+        <select id="excludeSearch">
+            <option value="all">Показати всі</option>
+            <option value="branches">Філіали</option>
+            <option value="inactive">Неактивні</option>
+            <option value="large">Великі компанії</option>
+            <option value="medium">Середні компанії</option>
+            <option value="small">Маленькі компанії</option>
+            <option value="corporations">Корпорації</option>
+        </select>
+        <button type="submit">Search Companies</button>
+    </form>
+
+    <div id="companyResultsTable">
+        <!-- Здесь будут отображаться результаты поиска компаний -->
+    </div>
+
+    <!-- Форма поиска директоров -->
+    <form id="directorsSearchForm">
+        <label for="innCompany">INN company:</label>
+        <input type="text" id="innCompany" name="innCompany" placeholder="Enter INN">
+        <button type="submit">Search Directors</button>
+    </form>
+
+    <div id="directorsResultsTable">
+        <!-- Здесь будут отображаться результаты поиска директоров -->
+    </div>
+
+    <!-- Ссылка на объединенный JavaScript файл -->
+    <script src="combined_script.js"></script>
+</body>
+</html>

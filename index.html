@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Поиск компаний</title>
+    <!-- Здесь может быть ваш CSS или ссылки на внешние стили -->
+</head>
+<body>
+    <form id="searchForm">
+        <input type="text" id="name" placeholder="Name">
+        <input type="text" id="city" placeholder="City">
+        <input type="text" id="country" placeholder="Country">
+        <input type="text" id="address" placeholder="Address">
+        <input type="text" id="emailOrWebsite" placeholder="Email or Website">
+        <input type="text" id="nationalId" placeholder="National ID">
+        <input type="text" id="phoneOrFax" placeholder="Phone or Fax">
+        <input type="text" id="postCode" placeholder="Post Code">
+        <input type="text" id="state" placeholder="State">
+        <input type="text" id="ticker" placeholder="Ticker">
+        <input type="text" id="isin" placeholder="ISIN">
+        <input type="text" id="orbisId" placeholder="Orbis ID">
+        <button type="submit">Search</button>
+    </form>
+<label for="excludeSearch">Виключити з пошуку:</label>    
+<select id="excludeSearch">
+    <option value="all">Показати всі</option>
+    <option value="branches">Філіали</option>
+    <option value="inactive">Неактивні</option>
+    <option value="large">Великі компанії</option>
+    <option value="medium">Середні компанії</option>
+    <option value="small">Маленькі компанії</option>
+    <option value="corporations">Корпорації</option>
+</select>
+<a href="directors_search.html">Directors Search</a>
+
+    <div id="resultsTable">
+        <!-- Здесь будут отображаться результаты -->
+    </div>
+
+    <!-- Ссылка на ваш JavaScript файл -->
+    <script src="script.js"></script>
+    <h1>Bla bla</h1>
+    <p>kdjsicwhuhc</p>
+</body>
+</html>
