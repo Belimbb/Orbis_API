@@ -4,18 +4,13 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="0a23d5f3-d191-4898-abe0-39a161fdbb75" name="Changes" comment="Initial commit">
-      <change afterPath="$PROJECT_DIR$/src/main/java/main/ChatBot.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/main/ui/BotDialogHandler.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/main/ui/ButtonFactory.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/main/ui/MessageFactory.java" afterDir="false" />
+    <list default="true" id="0a23d5f3-d191-4898-abe0-39a161fdbb75" name="Changes" comment="rebuild to telegram bot (not working, in progress)">
+      <change afterPath="$PROJECT_DIR$/app.properties" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/main/systemSettings/AppRegisty.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/main/systemSettings/ConfigLoader.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/build.gradle" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/main/AppLauncher.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/main/AppLauncher.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/main/Main.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/main/service/ApiService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/main/apiService/ApiService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/main/service/ResponseParser.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/main/apiService/ResponseParser.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/main/service/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/main/apiService/User.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/main/ChatBot.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/main/ChatBot.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/main/apiService/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/main/apiService/User.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -86,7 +81,7 @@
       <workItem from="1705772835980" duration="224000" />
       <workItem from="1705773101163" duration="83000" />
       <workItem from="1705782223406" duration="2972000" />
-      <workItem from="1705821921052" duration="298000" />
+      <workItem from="1705821921052" duration="3230000" />
     </task>
     <task id="LOCAL-00001" summary="Initial commit">
       <option name="closed" value="true" />
@@ -96,7 +91,15 @@
       <option name="project" value="LOCAL" />
       <updated>1705772930153</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="rebuild to telegram bot (not working, in progress)">
+      <option name="closed" value="true" />
+      <created>1705822484719</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1705822484719</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -104,6 +107,7 @@
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="Initial commit" />
-    <option name="LAST_COMMIT_MESSAGE" value="Initial commit" />
+    <MESSAGE value="rebuild to telegram bot (not working, in progress)" />
+    <option name="LAST_COMMIT_MESSAGE" value="rebuild to telegram bot (not working, in progress)" />
   </component>
 </project>
