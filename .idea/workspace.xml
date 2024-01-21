@@ -5,10 +5,17 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="0a23d5f3-d191-4898-abe0-39a161fdbb75" name="Changes" comment="Initial commit">
-      <change beforePath="$PROJECT_DIR$/.idea/gradle.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/gradle.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/main/ChatBot.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/main/ui/BotDialogHandler.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/main/ui/ButtonFactory.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/main/ui/MessageFactory.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/build.gradle" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/Main.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/main/AppLauncher.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/main/AppLauncher.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/main/Main.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/main/service/ApiService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/main/apiService/ApiService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/main/service/ResponseParser.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/main/apiService/ResponseParser.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/main/service/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/main/apiService/User.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -19,6 +26,13 @@
     <projectState path="$PROJECT_DIR$">
       <ProjectState />
     </projectState>
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Class" />
+      </list>
+    </option>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_BRANCH_BY_REPOSITORY">
@@ -44,6 +58,10 @@
     &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
     &quot;git-widget-placeholder&quot;: &quot;Backend__logic&quot;,
     &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
     &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
     &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
@@ -67,6 +85,8 @@
       <updated>1705772834815</updated>
       <workItem from="1705772835980" duration="224000" />
       <workItem from="1705773101163" duration="83000" />
+      <workItem from="1705782223406" duration="2972000" />
+      <workItem from="1705821921052" duration="298000" />
     </task>
     <task id="LOCAL-00001" summary="Initial commit">
       <option name="closed" value="true" />

@@ -1,7 +1,7 @@
 package main;
 
 import main.requests.MultiRequest;
-import main.service.User;
+import main.apiService.User;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -9,7 +9,7 @@ import java.util.Map;
 // Company's (Owners)= https://api.bvdinfo.com/v1/orbis/Companies/data?query=
 //Contacts (Directors) = https://api.bvdinfo.com/v1/orbis/contacts/data?query=
 public class AppLauncher {
-    public void run(){
+    public static void main(String[] args) {
         String token = "2LK951a1674f439eee11abd50278abee30dc";
         // Создаем экземпляры классов
         User user = new User(token);

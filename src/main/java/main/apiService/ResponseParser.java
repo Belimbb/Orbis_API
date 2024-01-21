@@ -1,4 +1,4 @@
-package main.service;
+package main.apiService;
 
 import com.google.gson.*;
 
