@@ -1,7 +1,9 @@
 package main;
 
-import main.requests.MultiRequest;
-import main.apiService.User;
+import main.systemSettings.AppRegistry;
+import main.systemSettings.ConfigLoader;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -9,26 +11,20 @@ import java.util.Map;
 // Company's (Owners)= https://api.bvdinfo.com/v1/orbis/Companies/data?query=
 //Contacts (Directors) = https://api.bvdinfo.com/v1/orbis/contacts/data?query=
 public class AppLauncher {
+    private static final Logger LOGGER = LoggerFactory.getLogger(AppLauncher.class);
+
     public static void main(String[] args) {
-        String token = "2LK951a1674f439eee11abd50278abee30dc";
-        // Создаем экземпляры классов
-        User user = new User(token);
+        LOGGER.info("{}", "*".repeat(40));
+        LOGGER.info("App starting in Thread: {}", Thread.currentThread().getName());
 
-        MultiRequest multiRequest = new MultiRequest();
+        AppRegistry.initDefaults();
 
-        // Создаем запрос
-        Map<String, String> searchParameters = new HashMap<>();
-        searchParameters.put("Name", "ALFA-BANK");
-        searchParameters.put("OrbisID", "033219808");
+        String appName = ConfigLoader.get("APP_NAME");
+        String botName = ConfigLoader.get("APP_BOT_NAME");
+        String botToken = ConfigLoader.get("APP_BOT_TOKEN");
 
-        // Создаем и отправляем запрос
-        String query = multiRequest.createQuery(searchParameters, "ExcludeBranchLocations");
-
-        // Отправляем запрос и получаем ответ
-        String jsonResponse = user.getResponseParser().sendRequest("companies", query);
-
-        // Например, распечатать ответ или преобразовать его в определенный объект
-        System.out.println(jsonResponse);
+        ChatBot bot = new ChatBot(appName, botName, botToken);
+        bot.botRun();
     }
 }
 

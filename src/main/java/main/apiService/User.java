@@ -11,8 +11,7 @@ public class User {
     private String name;
     private String username;
 
-    public User(String token, Long id, String name, String username) {
-        this.token = token;
+    public User(Long id, String name, String username) {
         this.apiService = new ApiService(token);
         this.responseParser = new ResponseParser(apiService);
         this.id = id;

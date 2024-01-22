@@ -4,13 +4,15 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="0a23d5f3-d191-4898-abe0-39a161fdbb75" name="Changes" comment="rebuild to telegram bot (not working, in progress)">
-      <change afterPath="$PROJECT_DIR$/app.properties" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/main/systemSettings/AppRegisty.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/main/systemSettings/ConfigLoader.java" afterDir="false" />
+    <list default="true" id="0a23d5f3-d191-4898-abe0-39a161fdbb75" name="Changes" comment="just working on helper/app settings classes">
+      <change afterPath="$PROJECT_DIR$/src/main/java/main/systemSettings/AppRegistry.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/main/AppLauncher.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/main/AppLauncher.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/main/ChatBot.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/main/ChatBot.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/main/apiService/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/main/apiService/User.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/main/systemSettings/AppRegisty.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/main/ui/BotDialogHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/main/ui/BotDialogHandler.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/main/ui/MessageFactory.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/main/ui/MessageFactory.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -47,20 +49,42 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;Backend__logic&quot;,
-    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "Gradle.Orbis_API [:AppLauncher.main()].executor": "Run",
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "git-widget-placeholder": "Backend__logic",
+    "kotlin-language-version-configured": "true",
+    "last_opened_file_path": "C:/Users/PC/Documents/GitHub/CompaniesInfo",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "vue.rearranger.settings.migration": "true"
   }
-}</component>
+}]]></component>
+  <component name="RunManager">
+    <configuration name="AppLauncher" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="main.AppLauncher" />
+      <module name="Orbis_API.main" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="main.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Application.AppLauncher" />
+      </list>
+    </recent_temporary>
+  </component>
   <component name="SharedIndexes">
     <attachedChunks>
       <set>
@@ -81,7 +105,11 @@
       <workItem from="1705772835980" duration="224000" />
       <workItem from="1705773101163" duration="83000" />
       <workItem from="1705782223406" duration="2972000" />
-      <workItem from="1705821921052" duration="3230000" />
+      <workItem from="1705821921052" duration="3515000" />
+      <workItem from="1705828411486" duration="234000" />
+      <workItem from="1705834443983" duration="800000" />
+      <workItem from="1705941815617" duration="5350000" />
+      <workItem from="1705954855466" duration="1706000" />
     </task>
     <task id="LOCAL-00001" summary="Initial commit">
       <option name="closed" value="true" />
@@ -99,7 +127,15 @@
       <option name="project" value="LOCAL" />
       <updated>1705822484719</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="just working on helper/app settings classes">
+      <option name="closed" value="true" />
+      <created>1705827445809</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1705827445809</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -108,6 +144,7 @@
   <component name="VcsManagerConfiguration">
     <MESSAGE value="Initial commit" />
     <MESSAGE value="rebuild to telegram bot (not working, in progress)" />
-    <option name="LAST_COMMIT_MESSAGE" value="rebuild to telegram bot (not working, in progress)" />
+    <MESSAGE value="just working on helper/app settings classes" />
+    <option name="LAST_COMMIT_MESSAGE" value="just working on helper/app settings classes" />
   </component>
 </project>

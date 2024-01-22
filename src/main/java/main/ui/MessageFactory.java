@@ -17,8 +17,8 @@ public class MessageFactory {
         this.chatId = chatId;
     }
 
-    // Создание обычного текстового сообщения
-    public static SendMessage createMessage(Long chatId, String text) {
+    // Creating a plain text message
+    public SendMessage createMessage(String text) {
         SendMessage message = new SendMessage();
         message.setChatId(chatId.toString());
         message.setText(text);
@@ -26,8 +26,8 @@ public class MessageFactory {
         return message;
     }
 
-    // Создание текстового сообщения с эмодзи
-    public static SendMessage createMessageWithEmoji(String emoji, String text) {
+    // Creating a text message with emoji
+    public SendMessage createMessageWithEmoji(String emoji, String text) {
         String fullText = emoji.isEmpty() ? text : emoji + " " + text;
         SendMessage message = new SendMessage();
         message.setChatId(chatId.toString());
@@ -36,8 +36,8 @@ public class MessageFactory {
         return message;
     }
 
-    // Создание сообщения с фото
-    public static SendPhoto createPhotoMessage(String imageUrl, String caption) {
+    // Creating a message with a photo
+    public SendPhoto createPhotoMessage(String imageUrl, String caption) {
         SendPhoto photo = new SendPhoto();
         photo.setChatId(chatId.toString());
         photo.setPhoto(new InputFile(imageUrl));
@@ -46,8 +46,8 @@ public class MessageFactory {
         return photo;
     }
 
-    // Изменение существующего сообщения
-    public static EditMessageText editMessage(Integer messageId, String text) {
+    // Edit an existing message
+    public EditMessageText editMessage(Integer messageId, String text) {
         EditMessageText editMessage = new EditMessageText();
         editMessage.setChatId(chatId.toString());
         editMessage.setMessageId(messageId);
