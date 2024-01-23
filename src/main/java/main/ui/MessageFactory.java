@@ -5,6 +5,9 @@ import org.telegram.telegrambots.meta.api.methods.send.SendMessage;
 import org.telegram.telegrambots.meta.api.methods.send.SendPhoto;
 import org.telegram.telegrambots.meta.api.methods.updatingmessages.EditMessageText;
 import org.telegram.telegrambots.meta.api.objects.InputFile;
+import org.telegram.telegrambots.meta.api.objects.replykeyboard.InlineKeyboardMarkup;
+
+import java.nio.charset.StandardCharsets;
 
 /**
  * MVC: View (Class helper)
@@ -47,12 +50,15 @@ public class MessageFactory {
     }
 
     // Edit an existing message
-    public EditMessageText editMessage(Integer messageId, String text) {
-        EditMessageText editMessage = new EditMessageText();
-        editMessage.setChatId(chatId.toString());
-        editMessage.setMessageId(messageId);
-        editMessage.setText(text);
-        editMessage.setParseMode(ParseMode.HTML);
-        return editMessage;
+    public EditMessageText createEditMessage(Long chatId, Integer messageId, String messageText) {
+        return createEditMessage(chatId, messageId, "", messageText);
+    }
+    public EditMessageText createEditMessage(Long chatId, Integer messageId, String emoji, String messageText) {
+        EditMessageText newMessage = new EditMessageText();
+        newMessage.setChatId(String.valueOf(chatId));
+        newMessage.setMessageId(messageId);
+        newMessage.setText(emoji.isEmpty() ? messageText : emoji + "  " + messageText);
+        newMessage.setParseMode(ParseMode.HTML);
+        return newMessage;
     }
 }

@@ -1,5 +1,8 @@
 package main.ui;
 
+import main.ChatBot;
+import main.apiService.User;
+import main.systemSettings.AppRegistry;
 import org.telegram.telegrambots.meta.api.methods.send.SendMessage;
 import org.telegram.telegrambots.meta.api.methods.send.SendPhoto;
 import org.telegram.telegrambots.meta.api.methods.updatingmessages.EditMessageText;
@@ -12,9 +15,11 @@ import java.util.*;
 public class BotDialogHandler {
     private static final String START_PHOTO = "https://www.bvdinfo.com/en-gb/-/media/product-logos/orbis.png?h=592&iar=0&w=800&hash=FD098D9A01606D12046B2DD0C7972ADA";
     private final MessageFactory messageFactory;
+    private Long chatId;
 
     public BotDialogHandler(Long chatId) {
         this.messageFactory = new MessageFactory(chatId);
+        this.chatId = chatId;
     }
 
     // Стартовое сообщение
@@ -27,7 +32,7 @@ public class BotDialogHandler {
     public SendMessage createGetInfoMessage(){
         String text = "Select a search option from this list";
         SendMessage message = messageFactory.createMessage(text);
-        message.setReplyMarkup(ButtonFactory.getInlineKeyboardMarkup(getInformationOptions(), "getInformation", new ArrayList<>()));
+        message.setReplyMarkup(ButtonFactory.getInlineKeyboardMarkup(chatId, getInformationOptions(), "getInformation"));
         return message;
     }
 /*
@@ -41,7 +46,13 @@ public class BotDialogHandler {
     public SendMessage createSettingsMessage() {
         String text = "⚙ <b>Settings</b>";
         SendMessage message = messageFactory.createMessage(text);
-        message.setReplyMarkup(ButtonFactory.getInlineKeyboardMarkup(getSettingsOptions(), "settings", new ArrayList<>()));
+        message.setReplyMarkup(ButtonFactory.getInlineKeyboardMarkup(chatId, getSettingsOptions(), "settings"));
+        return message;
+    }
+    public EditMessageText onInformMessage(Long chatId, Integer messageId) {
+        String text = "<b>Select a search option from this list</b>";
+        EditMessageText message = messageFactory.createEditMessage(chatId, messageId, text);
+        message.setReplyMarkup(ButtonFactory.getInlineKeyboardMarkup(chatId, getInformationOptions(), "getInformation"));
         return message;
     }
     private Map<String, String> getInformationOptions() {
@@ -54,7 +65,8 @@ public class BotDialogHandler {
         options.put("nationalId", "National Id");
         options.put("phoneOrFax", "Phone or Fax");
         options.put("ticker", "Ticker");
-        options.put("orbisID", "Orbis ID");
+        options.put("orbisId", "Orbis ID");
+        options.put("submit", "Submit criteria");
         return options;
     }
 

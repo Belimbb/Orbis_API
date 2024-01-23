@@ -4,11 +4,14 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="0a23d5f3-d191-4898-abe0-39a161fdbb75" name="Changes" comment="test one version (not working)">
+    <list default="true" id="0a23d5f3-d191-4898-abe0-39a161fdbb75" name="Changes" comment="working code (start message, inform message)">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/main/ChatBot.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/main/ChatBot.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/main/apiService/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/main/apiService/User.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/main/requests/MultiRequest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/main/requests/MultiRequest.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/main/ui/BotDialogHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/main/ui/BotDialogHandler.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/main/ui/ButtonFactory.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/main/ui/ButtonFactory.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/main/ui/MessageFactory.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/main/ui/MessageFactory.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -47,6 +50,7 @@
   </component>
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
+    "Gradle.Download Sources.executor": "Run",
     "Gradle.Orbis_API [:AppLauncher.main()].executor": "Run",
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
@@ -106,7 +110,7 @@
       <workItem from="1705834443983" duration="800000" />
       <workItem from="1705941815617" duration="5350000" />
       <workItem from="1705954855466" duration="2237000" />
-      <workItem from="1706018500504" duration="5854000" />
+      <workItem from="1706018500504" duration="19528000" />
     </task>
     <task id="LOCAL-00001" summary="Initial commit">
       <option name="closed" value="true" />
@@ -140,7 +144,15 @@
       <option name="project" value="LOCAL" />
       <updated>1705957173015</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="working code (start message, inform message)">
+      <option name="closed" value="true" />
+      <created>1706026702484</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1706026702484</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -151,19 +163,16 @@
     <MESSAGE value="rebuild to telegram bot (not working, in progress)" />
     <MESSAGE value="just working on helper/app settings classes" />
     <MESSAGE value="test one version (not working)" />
-    <option name="LAST_COMMIT_MESSAGE" value="test one version (not working)" />
+    <MESSAGE value="working code (start message, inform message)" />
+    <option name="LAST_COMMIT_MESSAGE" value="working code (start message, inform message)" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
       <breakpoints>
-        <line-breakpoint enabled="true" type="java-method">
-          <url>file://$PROJECT_DIR$/src/main/java/main/ChatBot.java</url>
-          <line>85</line>
-          <properties class="main.ChatBot" method="onUpdateReceived">
-            <option name="EMULATED" value="true" />
-            <option name="WATCH_EXIT" value="false" />
-          </properties>
-          <option name="timeStamp" value="3" />
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/main/ui/ButtonFactory.java</url>
+          <line>36</line>
+          <option name="timeStamp" value="13" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>

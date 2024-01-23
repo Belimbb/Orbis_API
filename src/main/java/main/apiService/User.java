@@ -1,6 +1,8 @@
 package main.apiService;
 
 
+import java.util.HashMap;
+import java.util.Map;
 import java.util.Objects;
 
 public class User {
@@ -10,6 +12,20 @@ public class User {
     private Long id;
     private String name;
     private String username;
+
+    private Map<String, String> searchCriteria = new HashMap<>();
+    public void addSearchCriteria(String key, String value) {
+        searchCriteria.put(key, value);
+    }
+
+    public String getSearchCriteria(String key) {
+        return searchCriteria.getOrDefault(key, "");
+    }
+
+    public Map<String, String> getAllSearchCriteria() {
+        return searchCriteria;
+    }
+
 
     public User(Long id, String name, String username) {
         this.apiService = new ApiService(token);

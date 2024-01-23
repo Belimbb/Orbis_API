@@ -1,5 +1,6 @@
 package main.ui;
 
+import main.systemSettings.AppRegistry;
 import org.telegram.telegrambots.meta.api.objects.replykeyboard.InlineKeyboardMarkup;
 import org.telegram.telegrambots.meta.api.objects.replykeyboard.buttons.InlineKeyboardButton;
 import org.telegram.telegrambots.meta.api.objects.replykeyboard.ReplyKeyboardMarkup;
@@ -30,12 +31,14 @@ public class ButtonFactory {
     }
 
     // Метод для создания инлайн-клавиатуры на основе предоставленных параметров
-    public static InlineKeyboardMarkup getInlineKeyboardMarkup(Map<String, String> options, String prefix, List<String> userSelections) {
+    public static InlineKeyboardMarkup getInlineKeyboardMarkup(long chatId, Map<String, String> options, String prefix) {
         List<List<InlineKeyboardButton>> rows = new ArrayList<>();
         List<InlineKeyboardButton> currentRow = new ArrayList<>();
+        Map<String, String> userCriteria = AppRegistry.getUser(chatId).getAllSearchCriteria();
 
         for (Map.Entry<String, String> option : options.entrySet()) {
-            currentRow.add(createButton(option.getValue(), prefix + "_" + option.getKey()));
+            String buttonText = userCriteria.containsKey(option.getKey()) ? "\u2705" + option.getValue() : option.getValue();
+            currentRow.add(createButton(buttonText, prefix + "_" + option.getKey()));
 
             // Когда в ряду наберется 3 кнопки, добавляем ряд в список и начинаем новый ряд
             if (currentRow.size() == 3) {
@@ -53,6 +56,7 @@ public class ButtonFactory {
         inlineKeyboardMarkup.setKeyboard(rows);
         return inlineKeyboardMarkup;
     }
+
 
     /**
      * Need in future

@@ -1,37 +1,63 @@
 package main.requests;
 
+import java.util.HashMap;
+import java.util.Map;
 import com.google.gson.JsonArray;
 import com.google.gson.JsonObject;
 import org.jetbrains.annotations.NotNull;
 
-import java.util.Map;
 public class MultiRequest {
 
-    public String createQuery(Map<String, String> searchParameters, String exclusionFlag) {
-        JsonObject whereCondition = getJsonObject(searchParameters, exclusionFlag);
+    private static final String BASE_URL = "https://api.bvdinfo.com/v1/Orbis/Companies/data?Query=";
+
+    // Конструктор и любые необходимые поля
+
+    // Метод для создания URL запроса
+    public static String getMultiRequestUrl() {
+        return BASE_URL;
+    }
+
+    // Метод для создания JSON запроса
+    public static String createMultiRequestQuery(Map<String, String> criteria) {
+        JsonObject matchObject = getJsonObject(criteria);
+
+        JsonObject whereCondition = new JsonObject();
+        whereCondition.add("MATCH", matchObject);
 
         JsonArray whereArray = new JsonArray();
         whereArray.add(whereCondition);
 
-        JsonArray selectArray = new JsonArray();
-        selectArray.add("NAME");
-        selectArray.add("BVDID");
-        selectArray.add("Match.EmailOrWebsite");
-        selectArray.add("NATIONAL_ID");
-        selectArray.add("AKA_NAME");
-        selectArray.add("BO_NAME");
+        // Добавьте все поля, которые необходимо выбрать
+        String[] selectFieldsArray = new String[]{
+                "NAME", "BVDID", "Match.EmailOrWebsite", "NATIONAL_ID", "NATIONAL_ID_LABEL", "COUNTRY",
+                "OVERVIEW_FULL_OVERVIEW", "Match.Name_Local",
+                "CPYCONTACTS_HEADER_FullNameOriginalLanguagePreferred", "CPYCONTACTS_HEADER_IdDirector",
+                "CPYCONTACTS_MEMBERSHIP_Function", "CPYCONTACTS_MEMBERSHIP_CurrentPrevious",
+                "CPYCONTACTS_HEADER_Birthdate", "CPYCONTACTS_HEADER_MultipleNationalitiesLabel",
+                "CPYCONTACTS_MEMBERSHIP_IsAShareholderFormatted", "BO_NAME", "BO_BVD_ID_NUMBER",
+                "BO_COUNTRY_ISO_CODE", "BO_WORLDCOMPLIANCE_MATCH_EXCEPT_SBE_INDICATOR", "SH_NAME",
+                "SH_BVD_ID_NUMBER", "SH_COUNTRY_ISO_CODE", "SH_DIRECT_PCT", "SH_NATIONAL_ID", "SH_WEBSITE",
+                "GUO_NAME", "SUB_NAME", "SUB_BVD_ID_NUMBER", "SUB_COUNTRY_ISO_CODE", "SUB_DIRECT_PCT",
+                "SUB_NATIONAL_ID", "SUB_WEBSITE", "BRANCH_NAME", "BRANCH_BVD_ID_NUMBER",
+                "BRANCH_COUNTRY_ISO_CODE", "NEW_COMPANY_DATE"
+        };
 
-        JsonObject fullRequest = new JsonObject();
-        fullRequest.add("WHERE", whereArray);
-        fullRequest.add("SELECT", selectArray);
+        JsonArray selectFields = new JsonArray();
+        for (String field : selectFieldsArray) {
+            selectFields.add(field);
+        }
 
-        return fullRequest.toString();
+        JsonObject queryObject = new JsonObject();
+        queryObject.add("WHERE", whereArray);
+        queryObject.add("SELECT", selectFields);
+
+        return queryObject.toString();
     }
 
     @NotNull
-    private static JsonObject getJsonObject(Map<String, String> searchParameters, String exclusionFlag) {
+    private static JsonObject getJsonObject(Map<String, String> criteria) {
         JsonObject matchCriteria = new JsonObject();
-        for (Map.Entry<String, String> entry : searchParameters.entrySet()) {
+        for (Map.Entry<String, String> entry : criteria.entrySet()) {
             if (!entry.getValue().isEmpty()) {
                 matchCriteria.addProperty(entry.getKey(), entry.getValue());
             }
@@ -43,12 +69,10 @@ public class MultiRequest {
         JsonObject optionsObject = new JsonObject();
         optionsObject.addProperty("SelectionMode", "normal");
         JsonArray exclusionFlags = new JsonArray();
-        exclusionFlags.add(exclusionFlag);
+        exclusionFlags.add("ExcludeBranchLocations");
         optionsObject.add("ExclusionFlags", exclusionFlags);
-        matchObject.add("Options", optionsObject);
 
-        JsonObject whereCondition = new JsonObject();
-        whereCondition.add("MATCH", matchObject);
-        return whereCondition;
+        matchObject.add("Options", optionsObject);
+        return matchObject;
     }
 }

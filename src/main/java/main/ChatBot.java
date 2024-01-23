@@ -17,6 +17,9 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import java.nio.charset.StandardCharsets;
+import java.util.Arrays;
+import java.util.HashMap;
+import java.util.List;
 
 import static main.systemSettings.AppRegistry.removeUser;
 
@@ -25,6 +28,7 @@ public class ChatBot extends TelegramLongPollingBot {
     private final String appName;
     private final String botName;
     private final String botToken;
+    private HashMap<String, String> commandMap;
 
     public ChatBot(String appName, String botName, String botToken) {
         this.appName = appName;
@@ -71,7 +75,9 @@ public class ChatBot extends TelegramLongPollingBot {
             userName = update.getCallbackQuery().getFrom().getLastName();
         }
         User user = new User(chatId, firstName, userName);
+        user.setToken("2LK951a1674f439eee11abd50278abee30dc");
         LOGGER.info("addUser: {} {}", chatId, firstName);
+        AppRegistry.addUser(user);
         return user;
     }
     private void checkOrAddUser(Long chatId, Update update) {
@@ -98,19 +104,33 @@ public class ChatBot extends TelegramLongPollingBot {
             // Start
             if (msgCommand.equals("/start")) {
                 isCommandPerformed = true;
-                doCommandStart(chatId, update);
+                doCommandStart(chatId);
             }
             if (msgCommand.equals("/get_information") || msgCommand.endsWith(new String("Get Information".getBytes(), StandardCharsets.UTF_8))){
                 isCommandPerformed = true;
-                doCommandGetInformation(chatId, update);
+                doCommandGetInformation(chatId);
             }
+        }
+        // Callbacks processing
+        if (update.hasCallbackQuery()) {
+            String[] btnCommand = update.getCallbackQuery().getData().split("_");
+//            LOGGER.info("btnCommand: {} btnCommand[] {}  User: {} {}", update.getCallbackQuery().getData(),
+//                    Arrays.toString(btnCommand), chatId, AppRegistry.getUser(chatId).getName());
+
+            switch (btnCommand[0].toLowerCase()) {
+                //case "name" -> doCallBackBank(chatId, update, btnCommand);
+                case "getinformation" -> doCallMultiRequest(chatId, update, btnCommand);
+               // case "name" -> doCallBackUserSettingsMessage(chatId, update, btnCommand);
+                //case "SETTINGS" -> doCallBackSettings(chatId, update);
+            }
+
         }
     }
     /*
      *
      * Message Commands
      * */
-    public void doCommandStart(Long chatId, Update update) {
+    public void doCommandStart(Long chatId) {
         SendPhoto ms = getDH(chatId).createWelcomeMessage();
         try {
             execute(ms);
@@ -118,7 +138,7 @@ public class ChatBot extends TelegramLongPollingBot {
             throw new RuntimeException(e);
         }
     }
-    public void doCommandGetInformation(Long chatId, Update update) {
+    public void doCommandGetInformation(Long chatId) {
         SendMessage ms = getDH(chatId).createGetInfoMessage();
         try {
             execute(ms);
@@ -126,6 +146,23 @@ public class ChatBot extends TelegramLongPollingBot {
             throw new RuntimeException(e);
         }
     }
+
+    private void doCallMultiRequest(Long chatId, Update update, String[] command) {
+        User user = AppRegistry.getUser(chatId);
+
+        if (!command[1].equals("submit")) {
+            if (user.getAllSearchCriteria().containsKey(command[1])){
+                user.getAllSearchCriteria().remove(command[1]);
+            }else {
+                user.addSearchCriteria(command[1], "");
+            }
+        }
+
+        // Отправка сообщения в чат
+        EditMessageText ms = getDH(chatId).onInformMessage(chatId, update.getCallbackQuery().getMessage().getMessageId());
+        sendMessage(ms);
+    }
+
 
     public void sendPhoto(SendPhoto photo) {
         if (photo != null) {
