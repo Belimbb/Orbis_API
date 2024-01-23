@@ -10,7 +10,7 @@ import java.util.*;
  * @author AlekseyB belovmladshui@gmail.com
  */
 public class BotDialogHandler {
-    private static final String URL_MEDIA = "https://epowhost.com/currency_chat_bot";
+    private static final String START_PHOTO = "https://www.bvdinfo.com/en-gb/-/media/product-logos/orbis.png?h=592&iar=0&w=800&hash=FD098D9A01606D12046B2DD0C7972ADA";
     private final MessageFactory messageFactory;
 
     public BotDialogHandler(Long chatId) {
@@ -19,29 +19,43 @@ public class BotDialogHandler {
 
     // Стартовое сообщение
     public SendPhoto createWelcomeMessage() {
-        String caption = "<b>Ласкаво просимо.</b> \nЦей бот допоможе отримати детальну інформацію про компанії";
-        SendPhoto photoMessage = messageFactory.createPhotoMessage(URL_MEDIA + "/welcome_message.jpg", caption);
+        String caption = "<b>Welcome</b>. \n" + "This bot will help you get detailed information about the company";
+        SendPhoto photoMessage = messageFactory.createPhotoMessage(START_PHOTO, caption);
         photoMessage.setReplyMarkup(ButtonFactory.getReplyKeyboardMarkup());
         return photoMessage;
     }
-
+    public SendMessage createGetInfoMessage(){
+        String text = "Select a search option from this list";
+        SendMessage message = messageFactory.createMessage(text);
+        message.setReplyMarkup(ButtonFactory.getInlineKeyboardMarkup(getInformationOptions(), "getInformation", new ArrayList<>()));
+        return message;
+    }
+/*
     public SendPhoto createAboutUsMessage() {
         String caption = "Розробник: <b>JavaCrafters Team</b>\nРепозиторій проєкту: https://github.com/vikadmin88/CurrencyChatBot";
         SendPhoto photoMessage = messageFactory.createPhotoMessage(URL_MEDIA + "/about_us.jpg", caption);
         photoMessage.setReplyMarkup(ButtonFactory.getReplyKeyboardMarkup());
         return photoMessage;
     }
-
+*/
     public SendMessage createSettingsMessage() {
-        String text = "⚙ <b>Налаштування</b>";
+        String text = "⚙ <b>Settings</b>";
         SendMessage message = messageFactory.createMessage(text);
         message.setReplyMarkup(ButtonFactory.getInlineKeyboardMarkup(getSettingsOptions(), "settings", new ArrayList<>()));
         return message;
     }
-
-    public EditMessageText onDecimalMessage(Integer messageId) {
-        String text = "<b>Знаків після коми</b>";
-        return messageFactory.editMessage(messageId, text);
+    private Map<String, String> getInformationOptions() {
+        Map<String, String> options = new HashMap<>();
+        options.put("name", "Name");
+        options.put("city", "City");
+        options.put("country", "Country");
+        options.put("address", "Address");
+        options.put("emailOrWebsite", "Email or Website");
+        options.put("nationalId", "National Id");
+        options.put("phoneOrFax", "Phone or Fax");
+        options.put("ticker", "Ticker");
+        options.put("orbisID", "Orbis ID");
+        return options;
     }
 
     private Map<String, String> getSettingsOptions() {

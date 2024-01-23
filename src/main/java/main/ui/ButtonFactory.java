@@ -19,8 +19,8 @@ public class ButtonFactory {
         List<KeyboardRow> keyboard = new ArrayList<>();
 
         KeyboardRow row = new KeyboardRow();
-        row.add("Курси валют");
-        row.add("Налаштування");
+        row.add("Get Information");
+        row.add("Settings");
 
         keyboard.add(row);
         replyKeyboardMarkup.setKeyboard(keyboard);
@@ -31,6 +31,34 @@ public class ButtonFactory {
 
     // Метод для создания инлайн-клавиатуры на основе предоставленных параметров
     public static InlineKeyboardMarkup getInlineKeyboardMarkup(Map<String, String> options, String prefix, List<String> userSelections) {
+        List<List<InlineKeyboardButton>> rows = new ArrayList<>();
+        List<InlineKeyboardButton> currentRow = new ArrayList<>();
+
+        for (Map.Entry<String, String> option : options.entrySet()) {
+            currentRow.add(createButton(option.getValue(), prefix + "_" + option.getKey()));
+
+            // Когда в ряду наберется 3 кнопки, добавляем ряд в список и начинаем новый ряд
+            if (currentRow.size() == 3) {
+                rows.add(currentRow);
+                currentRow = new ArrayList<>();
+            }
+        }
+
+        // Добавляем последний ряд, если он не пустой
+        if (!currentRow.isEmpty()) {
+            rows.add(currentRow);
+        }
+
+        InlineKeyboardMarkup inlineKeyboardMarkup = new InlineKeyboardMarkup();
+        inlineKeyboardMarkup.setKeyboard(rows);
+        return inlineKeyboardMarkup;
+    }
+
+    /**
+     * Need in future
+     */
+    /*
+    public static InlineKeyboardMarkup getInlineKeyboardMarkup(Map<String, String> options, String prefix, List<String> userSelections) {
         List<InlineKeyboardButton> buttons = new ArrayList<>();
         for (Map.Entry<String, String> option : options.entrySet()) {
             String buttonText = userSelections.contains(option.getKey()) ? "✅ " + option.getValue() : option.getValue();
@@ -38,7 +66,7 @@ public class ButtonFactory {
         }
         return buildInlineKeyboard(buttons);
     }
-
+    */
     // Вспомогательный метод для создания кнопки
     private static InlineKeyboardButton createButton(String text, String callbackData) {
         InlineKeyboardButton button = new InlineKeyboardButton();

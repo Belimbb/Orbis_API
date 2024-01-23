@@ -93,12 +93,16 @@ public class ChatBot extends TelegramLongPollingBot {
         if (update.hasMessage()) {
 
             String msgCommand = update.getMessage().getText();
-            LOGGER.info("onUpdate: msgCommand: {}  User: {} {}", msgCommand, chatId, AppRegistry.getUser(chatId).getName());
+            //LOGGER.info("onUpdate: msgCommand: {}  User: {} {}", msgCommand, chatId, AppRegistry.getUser(chatId).getName());
 
             // Start
             if (msgCommand.equals("/start")) {
                 isCommandPerformed = true;
                 doCommandStart(chatId, update);
+            }
+            if (msgCommand.equals("/get_information") || msgCommand.endsWith(new String("Get Information".getBytes(), StandardCharsets.UTF_8))){
+                isCommandPerformed = true;
+                doCommandGetInformation(chatId, update);
             }
         }
     }
@@ -108,6 +112,14 @@ public class ChatBot extends TelegramLongPollingBot {
      * */
     public void doCommandStart(Long chatId, Update update) {
         SendPhoto ms = getDH(chatId).createWelcomeMessage();
+        try {
+            execute(ms);
+        } catch (TelegramApiException e) {
+            throw new RuntimeException(e);
+        }
+    }
+    public void doCommandGetInformation(Long chatId, Update update) {
+        SendMessage ms = getDH(chatId).createGetInfoMessage();
         try {
             execute(ms);
         } catch (TelegramApiException e) {
