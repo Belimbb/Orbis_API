@@ -16,6 +16,7 @@ import org.telegram.telegrambots.updatesreceivers.DefaultBotSession;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+import java.awt.*;
 import java.nio.charset.StandardCharsets;
 import java.util.Arrays;
 import java.util.HashMap;
@@ -97,6 +98,7 @@ public class ChatBot extends TelegramLongPollingBot {
 
         // Messages processing
         if (update.hasMessage()) {
+            String messageText = update.getMessage().getText();
 
             String msgCommand = update.getMessage().getText();
             //LOGGER.info("onUpdate: msgCommand: {}  User: {} {}", msgCommand, chatId, AppRegistry.getUser(chatId).getName());
@@ -106,9 +108,12 @@ public class ChatBot extends TelegramLongPollingBot {
                 isCommandPerformed = true;
                 doCommandStart(chatId);
             }
-            if (msgCommand.equals("/get_information") || msgCommand.endsWith(new String("Get Information".getBytes(), StandardCharsets.UTF_8))){
+            else if (msgCommand.equals("/get_information") || msgCommand.endsWith(new String("Get Information".getBytes(), StandardCharsets.UTF_8))){
                 isCommandPerformed = true;
                 doCommandGetInformation(chatId);
+            } else {
+                getDH(chatId).updateSearchCriteriaFromMessage(messageText);
+                sendMessage(getDH(chatId).createMultiRequestMessage());
             }
         }
         // Callbacks processing
@@ -149,18 +154,21 @@ public class ChatBot extends TelegramLongPollingBot {
 
     private void doCallMultiRequest(Long chatId, Update update, String[] command) {
         User user = AppRegistry.getUser(chatId);
-
         if (!command[1].equals("submit")) {
             if (user.getAllSearchCriteria().containsKey(command[1])){
                 user.getAllSearchCriteria().remove(command[1]);
             }else {
                 user.addSearchCriteria(command[1], "");
             }
-        }
+            // Отправка сообщения в чат
+            EditMessageText ms = getDH(chatId).onInformMessage(chatId, update.getCallbackQuery().getMessage().getMessageId());
+            sendMessage(ms);
 
-        // Отправка сообщения в чат
-        EditMessageText ms = getDH(chatId).onInformMessage(chatId, update.getCallbackQuery().getMessage().getMessageId());
-        sendMessage(ms);
+        }else {
+            // Отправка сообщения в чат
+            SendMessage ms = getDH(chatId).createSearchCriteriaForm();
+            sendMessage(ms);
+        }
     }
 
 

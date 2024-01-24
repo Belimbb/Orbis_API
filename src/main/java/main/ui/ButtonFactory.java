@@ -51,26 +51,13 @@ public class ButtonFactory {
         if (!currentRow.isEmpty()) {
             rows.add(currentRow);
         }
+        rows.add(new ArrayList<>(Collections.singleton(createButton("Submit criteria", prefix + "_" + "submit"))));
 
         InlineKeyboardMarkup inlineKeyboardMarkup = new InlineKeyboardMarkup();
         inlineKeyboardMarkup.setKeyboard(rows);
         return inlineKeyboardMarkup;
     }
 
-
-    /**
-     * Need in future
-     */
-    /*
-    public static InlineKeyboardMarkup getInlineKeyboardMarkup(Map<String, String> options, String prefix, List<String> userSelections) {
-        List<InlineKeyboardButton> buttons = new ArrayList<>();
-        for (Map.Entry<String, String> option : options.entrySet()) {
-            String buttonText = userSelections.contains(option.getKey()) ? "✅ " + option.getValue() : option.getValue();
-            buttons.add(createButton(buttonText, prefix + "_" + option.getKey()));
-        }
-        return buildInlineKeyboard(buttons);
-    }
-    */
     // Вспомогательный метод для создания кнопки
     private static InlineKeyboardButton createButton(String text, String callbackData) {
         InlineKeyboardButton button = new InlineKeyboardButton();

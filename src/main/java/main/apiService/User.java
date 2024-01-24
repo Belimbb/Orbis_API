@@ -21,6 +21,9 @@ public class User {
     public String getSearchCriteria(String key) {
         return searchCriteria.getOrDefault(key, "");
     }
+    public void setAllSearchCriteria(Map<String, String> searchCriteria){
+        this.searchCriteria = searchCriteria;
+    }
 
     public Map<String, String> getAllSearchCriteria() {
         return searchCriteria;

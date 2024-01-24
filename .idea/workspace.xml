@@ -4,14 +4,14 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="0a23d5f3-d191-4898-abe0-39a161fdbb75" name="Changes" comment="working code (start message, inform message)">
+    <list default="true" id="0a23d5f3-d191-4898-abe0-39a161fdbb75" name="Changes" comment="working select search option Keyboard (only tech logic)">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/main/ChatBot.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/main/ChatBot.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/main/apiService/ResponseParser.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/main/apiService/ResponseParser.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/main/apiService/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/main/apiService/User.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/main/requests/MultiRequest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/main/requests/MultiRequest.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/main/ui/BotDialogHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/main/ui/BotDialogHandler.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/main/ui/ButtonFactory.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/main/ui/ButtonFactory.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/main/ui/MessageFactory.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/main/ui/MessageFactory.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -52,6 +52,7 @@
   "keyToString": {
     "Gradle.Download Sources.executor": "Run",
     "Gradle.Orbis_API [:AppLauncher.main()].executor": "Run",
+    "Gradle.Orbis_API [:Test.main()].executor": "Run",
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "git-widget-placeholder": "Backend__logic",
@@ -65,7 +66,7 @@
     "vue.rearranger.settings.migration": "true"
   }
 }]]></component>
-  <component name="RunManager">
+  <component name="RunManager" selected="Application.AppLauncher">
     <configuration name="AppLauncher" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="main.AppLauncher" />
       <module name="Orbis_API.main" />
@@ -79,8 +80,22 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration name="Test" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="main.Test" />
+      <module name="Orbis_API.main" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="main.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Application.Test" />
         <item itemvalue="Application.AppLauncher" />
       </list>
     </recent_temporary>
@@ -110,7 +125,7 @@
       <workItem from="1705834443983" duration="800000" />
       <workItem from="1705941815617" duration="5350000" />
       <workItem from="1705954855466" duration="2237000" />
-      <workItem from="1706018500504" duration="19528000" />
+      <workItem from="1706018500504" duration="31924000" />
     </task>
     <task id="LOCAL-00001" summary="Initial commit">
       <option name="closed" value="true" />
@@ -152,7 +167,15 @@
       <option name="project" value="LOCAL" />
       <updated>1706026702484</updated>
     </task>
-    <option name="localTasksCounter" value="6" />
+    <task id="LOCAL-00006" summary="working select search option Keyboard (only tech logic)">
+      <option name="closed" value="true" />
+      <created>1706044163484</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1706044163484</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -164,17 +187,7 @@
     <MESSAGE value="just working on helper/app settings classes" />
     <MESSAGE value="test one version (not working)" />
     <MESSAGE value="working code (start message, inform message)" />
-    <option name="LAST_COMMIT_MESSAGE" value="working code (start message, inform message)" />
-  </component>
-  <component name="XDebuggerManager">
-    <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/main/ui/ButtonFactory.java</url>
-          <line>36</line>
-          <option name="timeStamp" value="13" />
-        </line-breakpoint>
-      </breakpoints>
-    </breakpoint-manager>
+    <MESSAGE value="working select search option Keyboard (only tech logic)" />
+    <option name="LAST_COMMIT_MESSAGE" value="working select search option Keyboard (only tech logic)" />
   </component>
 </project>
