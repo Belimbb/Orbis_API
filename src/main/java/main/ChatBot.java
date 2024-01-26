@@ -16,11 +16,8 @@ import org.telegram.telegrambots.updatesreceivers.DefaultBotSession;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import java.awt.*;
-import java.nio.charset.StandardCharsets;
 import java.util.Arrays;
 import java.util.HashMap;
-import java.util.List;
 
 import static main.systemSettings.AppRegistry.removeUser;
 
@@ -61,9 +58,9 @@ public class ChatBot extends TelegramLongPollingBot {
         return null;
     }
 
-    private User addUser(Long chatId, Update update) {
+    private void addUser(Long chatId, Update update) {
         if (chatId == null) {
-            return null;
+            return;
         }
         String firstName = "";
         String userName = "";
@@ -79,7 +76,6 @@ public class ChatBot extends TelegramLongPollingBot {
         user.setToken("2LK951a1674f439eee11abd50278abee30dc");
         LOGGER.info("addUser: {} {}", chatId, firstName);
         AppRegistry.addUser(user);
-        return user;
     }
     private void checkOrAddUser(Long chatId, Update update) {
         if (!AppRegistry.hasUser(chatId)) {
@@ -92,7 +88,6 @@ public class ChatBot extends TelegramLongPollingBot {
     @Override
     public void onUpdateReceived(Update update) {
         Long chatId = getChatId(update);
-        boolean isCommandPerformed = false;
         // check or add user
         checkOrAddUser(chatId, update);
 
@@ -101,17 +96,17 @@ public class ChatBot extends TelegramLongPollingBot {
             String messageText = update.getMessage().getText();
 
             String msgCommand = update.getMessage().getText();
-            //LOGGER.info("onUpdate: msgCommand: {}  User: {} {}", msgCommand, chatId, AppRegistry.getUser(chatId).getName());
+            LOGGER.info("onUpdate: msgCommand: {}  User: {} {}", msgCommand, chatId, AppRegistry.getUser(chatId).getName());
 
             // Start
             if (msgCommand.equals("/start")) {
-                isCommandPerformed = true;
                 doCommandStart(chatId);
             }
-            else if (msgCommand.equals("/get_information") || msgCommand.endsWith(new String("Get Information".getBytes(), StandardCharsets.UTF_8))){
-                isCommandPerformed = true;
+            else if (msgCommand.equals("/get_information") || msgCommand.endsWith("Get Information")){
                 doCommandGetInformation(chatId);
             } else {
+                SendMessage waitMessage = getDH(chatId).getMessageFactory().createMessage("Processing your request...");
+                sendMessage(waitMessage);
                 getDH(chatId).updateSearchCriteriaFromMessage(messageText);
                 sendMessage(getDH(chatId).createMultiRequestMessage());
             }
@@ -119,14 +114,11 @@ public class ChatBot extends TelegramLongPollingBot {
         // Callbacks processing
         if (update.hasCallbackQuery()) {
             String[] btnCommand = update.getCallbackQuery().getData().split("_");
-//            LOGGER.info("btnCommand: {} btnCommand[] {}  User: {} {}", update.getCallbackQuery().getData(),
-//                    Arrays.toString(btnCommand), chatId, AppRegistry.getUser(chatId).getName());
+            LOGGER.info("btnCommand: {} btnCommand[] {}  User: {} {}", update.getCallbackQuery().getData(),
+                    Arrays.toString(btnCommand), chatId, AppRegistry.getUser(chatId).getName());
 
             switch (btnCommand[0].toLowerCase()) {
-                //case "name" -> doCallBackBank(chatId, update, btnCommand);
                 case "getinformation" -> doCallMultiRequest(chatId, update, btnCommand);
-               // case "name" -> doCallBackUserSettingsMessage(chatId, update, btnCommand);
-                //case "SETTINGS" -> doCallBackSettings(chatId, update);
             }
 
         }
@@ -165,7 +157,7 @@ public class ChatBot extends TelegramLongPollingBot {
             sendMessage(ms);
 
         }else {
-            // Отправка сообщения в чат
+            // Отправка сообщения в чат - форма для ввода данных
             SendMessage ms = getDH(chatId).createSearchCriteriaForm();
             sendMessage(ms);
         }
