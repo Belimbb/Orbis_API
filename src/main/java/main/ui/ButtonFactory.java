@@ -31,32 +31,30 @@ public class ButtonFactory {
     }
 
     // Метод для создания инлайн-клавиатуры на основе предоставленных параметров
-    public static InlineKeyboardMarkup getInlineKeyboardMarkup(long chatId, Map<String, String> options, String prefix) {
-        List<List<InlineKeyboardButton>> rows = new ArrayList<>();
-        List<InlineKeyboardButton> currentRow = new ArrayList<>();
-        Map<String, String> userCriteria = AppRegistry.getUser(chatId).getAllSearchCriteria();
+    public static InlineKeyboardMarkup createKeyboardForCriteriaSelection(Long chatId, Map<String, String> options, String prefix) {
+        List<InlineKeyboardButton> buttons = new ArrayList<>();
+        Map<String, String> selectedCriteria = AppRegistry.getUser(chatId).getAllSearchCriteria();
 
         for (Map.Entry<String, String> option : options.entrySet()) {
-            String buttonText = userCriteria.containsKey(option.getKey()) ? "\u2705" + option.getValue() : option.getValue();
-            currentRow.add(createButton(buttonText, prefix + "_" + option.getKey()));
-
-            // Когда в ряду наберется 3 кнопки, добавляем ряд в список и начинаем новый ряд
-            if (currentRow.size() == 3) {
-                rows.add(currentRow);
-                currentRow = new ArrayList<>();
-            }
+            boolean isSelected = selectedCriteria.containsKey(option.getKey());
+            String buttonText = isSelected ? "\u2705 " + option.getValue() : option.getValue();
+            buttons.add(createButton(buttonText, prefix + "_" + option.getKey()));
         }
-
-        // Добавляем последний ряд, если он не пустой
-        if (!currentRow.isEmpty()) {
-            rows.add(currentRow);
-        }
-        rows.add(new ArrayList<>(Collections.singleton(createButton("Submit criteria", prefix + "_" + "submit"))));
-
-        InlineKeyboardMarkup inlineKeyboardMarkup = new InlineKeyboardMarkup();
-        inlineKeyboardMarkup.setKeyboard(rows);
-        return inlineKeyboardMarkup;
+        buttons.add(createButton("Submit criteria", prefix + "_" + "submit"));
+        return buildInlineKeyboard(buttons);
     }
+    public static InlineKeyboardMarkup createUniversalInlineKeyboard(Map<String, String> buttonsData) {
+        List<InlineKeyboardButton> buttons = new ArrayList<>();
+
+        for (Map.Entry<String, String> entry : buttonsData.entrySet()) {
+            String buttonText = entry.getValue();
+            String callbackData = entry.getKey();
+            buttons.add(createButton(buttonText, callbackData));
+        }
+
+        return buildInlineKeyboard(buttons);
+    }
+
 
     // Вспомогательный метод для создания кнопки
     private static InlineKeyboardButton createButton(String text, String callbackData) {
@@ -70,12 +68,22 @@ public class ButtonFactory {
     private static InlineKeyboardMarkup buildInlineKeyboard(List<InlineKeyboardButton> buttons) {
         InlineKeyboardMarkup inlineKeyboardMarkup = new InlineKeyboardMarkup();
         List<List<InlineKeyboardButton>> keyboard = new ArrayList<>();
+        List<InlineKeyboardButton> currentRow = new ArrayList<>();
+
         for (InlineKeyboardButton button : buttons) {
-            List<InlineKeyboardButton> row = new ArrayList<>();
-            row.add(button);
-            keyboard.add(row);
+            currentRow.add(button);
+            if (currentRow.size() == 3) {
+                keyboard.add(new ArrayList<>(currentRow));
+                currentRow.clear();
+            }
         }
+
+        if (!currentRow.isEmpty()) {
+            keyboard.add(currentRow);
+        }
+
         inlineKeyboardMarkup.setKeyboard(keyboard);
         return inlineKeyboardMarkup;
     }
+
 }

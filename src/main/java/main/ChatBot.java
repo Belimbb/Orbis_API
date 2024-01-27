@@ -163,17 +163,6 @@ public class ChatBot extends TelegramLongPollingBot {
         }
     }
 
-
-    public void sendPhoto(SendPhoto photo) {
-        if (photo != null) {
-            try {
-                execute(photo);
-            } catch (TelegramApiException e) {
-                LOGGER.error("Can't send photo", e);
-            }
-        }
-    }
-
     public void sendMessage(SendMessage message) {
         if (message != null) {
             try {

@@ -38,7 +38,7 @@ public class BotDialogHandler {
     public SendMessage createGetInfoMessage(){
         String text = "<b>Select a search option from this list</b>";
         SendMessage message = messageFactory.createMessage(text);
-        message.setReplyMarkup(ButtonFactory.getInlineKeyboardMarkup(chatId, getInformationOptions(), "getInformation"));
+        message.setReplyMarkup(ButtonFactory.createKeyboardForCriteriaSelection(chatId, getInformationOptions(), "getInformation"));
         return message;
     }
 
@@ -57,7 +57,7 @@ public class BotDialogHandler {
         String formattedResponse = formatResponse(apiResponse);
 
         SendMessage message = messageFactory.createMessage(basicText + "\n" + formattedResponse);
-        message.setReplyMarkup(ButtonFactory.getReplyKeyboardMarkup());
+        message.setReplyMarkup(ButtonFactory.createUniversalInlineKeyboard(getMultiRequestOptions()));
         return message;
     }
 
@@ -90,6 +90,7 @@ public class BotDialogHandler {
         formattedResponse.append("<b>Local name:</b> ").append(apiResponse.getOrDefault("Match.Name_Local", "n/a")).append("\n");
 
         return formattedResponse.toString();
+
     }    public SendMessage createSearchCriteriaForm() {
         Map<String, String> searchCriteria = AppRegistry.getUser(chatId).getAllSearchCriteria();
         StringBuilder formMessage = new StringBuilder("Please write information for search:\n");
@@ -135,7 +136,7 @@ public class BotDialogHandler {
     public EditMessageText onInformMessage(Long chatId, Integer messageId) {
         String text = "<b>Select a search option from this list</b>";
         EditMessageText message = messageFactory.createEditMessage(chatId, messageId, text);
-        message.setReplyMarkup(ButtonFactory.getInlineKeyboardMarkup(chatId, getInformationOptions(), "getInformation"));
+        message.setReplyMarkup(ButtonFactory.createKeyboardForCriteriaSelection(chatId, getInformationOptions(), "getInformation"));
         return message;
     }
     private Map<String, String> getInformationOptions() {
@@ -149,6 +150,15 @@ public class BotDialogHandler {
         options.put("phoneOrFax", "Phone or Fax");
         options.put("ticker", "Ticker");
         options.put("orbisId", "Orbis ID");
+        return options;
+    }
+    private Map<String, String> getMultiRequestOptions() {
+        Map<String, String> options = new HashMap<>();
+        options.put("directors", "Directors");
+        options.put("founder", "Founder");
+        options.put("owner", "Beneficial owner");
+        options.put("subsidiary", "Subsidiary companies");
+        options.put("branches", "Branches");
         return options;
     }
 
