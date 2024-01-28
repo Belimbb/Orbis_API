@@ -1,6 +1,8 @@
 package main.apiService;
 
 
+import main.apiService.responseParsing.ResponseParser;
+
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
@@ -12,7 +14,7 @@ public class User {
     private Long id;
     private String name;
     private String username;
-
+    private String jsonResponse;
     private Map<String, String> searchCriteria = new HashMap<>();
     public void addSearchCriteria(String key, String value) {
         searchCriteria.put(key, value);
@@ -36,6 +38,14 @@ public class User {
         this.id = id;
         this.name = name;
         this.username = username;
+    }
+
+    public String getJsonResponse() {
+        return jsonResponse;
+    }
+
+    public void setJsonResponse(String jsonResponse) {
+        this.jsonResponse = jsonResponse;
     }
 
     public Long getId() {

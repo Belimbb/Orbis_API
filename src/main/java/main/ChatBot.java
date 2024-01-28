@@ -113,14 +113,18 @@ public class ChatBot extends TelegramLongPollingBot {
         }
         // Callbacks processing
         if (update.hasCallbackQuery()) {
-            String[] btnCommand = update.getCallbackQuery().getData().split("_");
-            LOGGER.info("btnCommand: {} btnCommand[] {}  User: {} {}", update.getCallbackQuery().getData(),
+            String data = update.getCallbackQuery().getData();
+
+            String[] btnCommand = data.split("_");
+            LOGGER.info("btnCommand: {} btnCommand[] {}  User: {} {}", data,
                     Arrays.toString(btnCommand), chatId, AppRegistry.getUser(chatId).getName());
-
-            switch (btnCommand[0].toLowerCase()) {
-                case "getinformation" -> doCallMultiRequest(chatId, update, btnCommand);
+            if (btnCommand[0].toLowerCase().equals("getinformation")){
+                doCallMultiRequest(chatId, update, btnCommand);
+            }else {
+                switch (btnCommand[0].toLowerCase()) {
+                    case "directors" -> doDirectorsRequest(chatId);
+                }
             }
-
         }
     }
     /*
@@ -161,6 +165,11 @@ public class ChatBot extends TelegramLongPollingBot {
             SendMessage ms = getDH(chatId).createSearchCriteriaForm();
             sendMessage(ms);
         }
+    }
+
+    private void doDirectorsRequest(Long chatId){
+        SendMessage ms = getDH(chatId).createDirectorsMessage();
+        sendMessage(ms);
     }
 
     public void sendMessage(SendMessage message) {

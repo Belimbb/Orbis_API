@@ -1,7 +1,7 @@
 package main.ui;
 
 import main.apiService.ApiService;
-import main.apiService.ResponseParser;
+import main.apiService.responseParsing.ResponseParser;
 import main.requests.MultiRequest;
 import main.systemSettings.AppRegistry;
 
@@ -48,20 +48,37 @@ public class BotDialogHandler {
         String query = MultiRequest.createMultiRequestQuery(AppRegistry.getUser(chatId).getAllSearchCriteria());
 
         ResponseParser responseParser = new ResponseParser(new ApiService(AppRegistry.getUser(chatId).getToken()));
-        String response = responseParser.sendRequest(firstURL, query);
+        AppRegistry.getUser(chatId).setJsonResponse(responseParser.sendRequest(firstURL, query));
 
         // Преобразование JSON-ответа в Map<String, String>
-        Map<String, String> apiResponse = responseParser.parseApiResponse(response);
+        Map<String, String> apiResponse = responseParser.parseCompanySummary(AppRegistry.getUser(chatId).getJsonResponse());
 
         // Форматирование ответа
-        String formattedResponse = formatResponse(apiResponse);
+        String formattedResponse = formatCompanySummary(apiResponse);
 
         SendMessage message = messageFactory.createMessage(basicText + "\n" + formattedResponse);
         message.setReplyMarkup(ButtonFactory.createUniversalInlineKeyboard(getMultiRequestOptions()));
         return message;
     }
 
-    private String formatResponse(Map<String, String> apiResponse) {
+    public SendMessage createDirectorsMessage(){
+        String basicText = "<b>Directors</b>";
+
+        ResponseParser responseParser = new ResponseParser(new ApiService(AppRegistry.getUser(chatId).getToken()));
+
+        // Преобразование JSON-ответа в Map<String, String>
+        String jsonResponse = AppRegistry.getUser(chatId).getJsonResponse();
+        List<Map<String, String>> apiResponse = responseParser.parseDirectors(jsonResponse);
+
+        // Форматирование ответа
+        String formattedResponse = formatDirectorsSummary(apiResponse);
+
+        SendMessage message = messageFactory.createMessage(basicText + "\n" + formattedResponse);
+        message.setReplyMarkup(ButtonFactory.getReplyKeyboardMarkup());
+        return message;
+    }
+
+    private String formatCompanySummary(Map<String, String> apiResponse) {
         StringBuilder formattedResponse = new StringBuilder();
 
         // Добавляем каждое значение из ответа API
@@ -86,12 +103,29 @@ public class BotDialogHandler {
         formattedResponse.append("\n");
 
         formattedResponse.append("<b>Country:</b> ").append(apiResponse.getOrDefault("COUNTRY", "n/a")).append("\n");
-        formattedResponse.append("<b>Overview full overview:</b> ").append(apiResponse.getOrDefault("OVERVIEW_FULL_OVERVIEW", "n/a")).append("\n");
-        formattedResponse.append("<b>Local name:</b> ").append(apiResponse.getOrDefault("Match.Name_Local", "n/a")).append("\n");
-
+        formattedResponse.append("<b>Local name:</b> ").append(apiResponse.getOrDefault("Name_Local", "n/a")).append("\n");
         return formattedResponse.toString();
 
-    }    public SendMessage createSearchCriteriaForm() {
+    }
+
+    private String formatDirectorsSummary(List<Map<String, String>>  directors) {
+        StringBuilder formattedResponse = new StringBuilder();
+
+        // Assuming 'directors' is a list of maps where each map contains director's information
+        for (Map<String, String> director : directors) {
+            formattedResponse.append("<b>Full Name:</b> ").append(director.getOrDefault("CPYCONTACTS_HEADER_FullNameOriginalLanguagePreferred", "n/a")).append("\n");
+            formattedResponse.append("<b>Id Director:</b> ").append(director.getOrDefault("CPYCONTACTS_HEADER_IdDirector", "n/a")).append("\n");
+            formattedResponse.append("<b>Function:</b> ").append(director.getOrDefault("CPYCONTACTS_MEMBERSHIP_Function", "n/a")).append("\n");
+            formattedResponse.append("<b>Current/Previous:</b> ").append(director.getOrDefault("CPYCONTACTS_MEMBERSHIP_CurrentPrevious", "n/a")).append("\n");
+            formattedResponse.append("<b>Birthdate:</b> ").append(director.getOrDefault("CPYCONTACTS_HEADER_Birthdate", "n/a")).append("\n");
+            formattedResponse.append("<b>Nationalities:</b> ").append(director.getOrDefault("CPYCONTACTS_HEADER_MultipleNationalitiesLabel", "n/a")).append("\n");
+            formattedResponse.append("<b>Shareholder:</b> ").append(director.getOrDefault("CPYCONTACTS_MEMBERSHIP_IsAShareholderFormatted", "n/a")).append("\n\n");
+        }
+
+        return formattedResponse.toString();
+    }
+
+    public SendMessage createSearchCriteriaForm() {
         Map<String, String> searchCriteria = AppRegistry.getUser(chatId).getAllSearchCriteria();
         StringBuilder formMessage = new StringBuilder("Please write information for search:\n");
 

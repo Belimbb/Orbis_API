@@ -28,7 +28,14 @@ public class MultiRequest {
 
         // Добавьте все поля, которые необходимо выбрать
         String[] selectFieldsArray = new String[]{
-                "NAME","BVDID","Match.EmailOrWebsite","NATIONAL_ID","NATIONAL_ID_LABEL","COUNTRY","OVERVIEW_FULL_OVERVIEW","Match.Name_Local"
+                "NAME","BVDID","Match.EmailOrWebsite","NATIONAL_ID","NATIONAL_ID_LABEL","COUNTRY",
+                "Match.Name_Local","CPYCONTACTS_HEADER_FullNameOriginalLanguagePreferred","CPYCONTACTS_HEADER_IdDirector",
+                "CPYCONTACTS_MEMBERSHIP_Function","CPYCONTACTS_MEMBERSHIP_CurrentPrevious","CPYCONTACTS_HEADER_Birthdate",
+                "CPYCONTACTS_HEADER_MultipleNationalitiesLabel","CPYCONTACTS_MEMBERSHIP_IsAShareholderFormatted","BO_NAME",
+                "BO_BVD_ID_NUMBER","BO_COUNTRY_ISO_CODE","BO_WORLDCOMPLIANCE_MATCH_EXCEPT_SBE_INDICATOR","SH_NAME","SH_BVD_ID_NUMBER",
+                "SH_COUNTRY_ISO_CODE","SH_DIRECT_PCT","SH_NATIONAL_ID","SH_WEBSITE","GUO_NAME","SUB_NAME","SUB_BVD_ID_NUMBER",
+                "SUB_COUNTRY_ISO_CODE","SUB_DIRECT_PCT","SUB_NATIONAL_ID","SUB_WEBSITE","BRANCH_NAME","BRANCH_BVD_ID_NUMBER",
+                "BRANCH_COUNTRY_ISO_CODE","NEW_COMPANY_DATE"
         };
 
         JsonArray selectFields = new JsonArray();

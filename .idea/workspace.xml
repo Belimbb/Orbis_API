@@ -4,12 +4,15 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="0a23d5f3-d191-4898-abe0-39a161fdbb75" name="Changes" comment="Fixed logger (now it works)&#10;a little file cleanup">
+    <list default="true" id="0a23d5f3-d191-4898-abe0-39a161fdbb75" name="Changes" comment="created buttons for multi request response (request doesn't work correct)">
+      <change afterPath="$PROJECT_DIR$/src/main/java/main/apiService/responseParsing/DirectorsParser.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/main/apiService/responseParsing/ResponseParser.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/main/ChatBot.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/main/ChatBot.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/main/apiService/ApiService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/main/apiService/ApiService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/main/apiService/ResponseParser.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/main/apiService/responseParsing/CompanySummaryParser.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/main/apiService/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/main/apiService/User.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/main/requests/MultiRequest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/main/requests/MultiRequest.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/main/ui/BotDialogHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/main/ui/BotDialogHandler.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/main/ui/ButtonFactory.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/main/ui/ButtonFactory.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -135,7 +138,9 @@
       <workItem from="1706299814552" duration="2148000" />
       <workItem from="1706357062037" duration="3457000" />
       <workItem from="1706364866132" duration="1469000" />
-      <workItem from="1706384082783" duration="952000" />
+      <workItem from="1706384082783" duration="5316000" />
+      <workItem from="1706427314686" duration="6243000" />
+      <workItem from="1706437974627" duration="4019000" />
     </task>
     <task id="LOCAL-00001" summary="Initial commit">
       <option name="closed" value="true" />
@@ -201,7 +206,15 @@
       <option name="project" value="LOCAL" />
       <updated>1706302394775</updated>
     </task>
-    <option name="localTasksCounter" value="9" />
+    <task id="LOCAL-00009" summary="created buttons for multi request response (request doesn't work correct)">
+      <option name="closed" value="true" />
+      <created>1706386293785</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1706386293785</updated>
+    </task>
+    <option name="localTasksCounter" value="10" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -216,19 +229,20 @@
     <MESSAGE value="working select search option Keyboard (only tech logic)" />
     <MESSAGE value="Version: Alpha 1.0 (only base multi request work)" />
     <MESSAGE value="Fixed logger (now it works)&#10;a little file cleanup" />
-    <option name="LAST_COMMIT_MESSAGE" value="Fixed logger (now it works)&#10;a little file cleanup" />
+    <MESSAGE value="created buttons for multi request response (request doesn't work correct)" />
+    <option name="LAST_COMMIT_MESSAGE" value="created buttons for multi request response (request doesn't work correct)" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
       <breakpoints>
         <line-breakpoint enabled="true" type="java-method">
-          <url>file://$PROJECT_DIR$/src/main/java/main/ui/BotDialogHandler.java</url>
-          <line>44</line>
-          <properties class="main.ui.BotDialogHandler" method="createMultiRequestMessage">
+          <url>file://$PROJECT_DIR$/src/main/java/main/apiService/responseParsing/DirectorsParser.java</url>
+          <line>11</line>
+          <properties class="main.apiService.responseParsing.DirectorsParser" method="parseApiResponse">
             <option name="EMULATED" value="true" />
             <option name="WATCH_EXIT" value="false" />
           </properties>
-          <option name="timeStamp" value="1" />
+          <option name="timeStamp" value="4" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
