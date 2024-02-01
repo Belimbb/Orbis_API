@@ -38,7 +38,6 @@ public class ApiService {
 
             JsonElement jsonElement = JsonParser.parseString(response.body().string());
             Gson gson = new GsonBuilder().setPrettyPrinting().create();
-            System.out.println(gson.toJson(jsonElement));
             return gson.toJson(jsonElement);
         } catch (IOException e) {
             e.printStackTrace(); // В реальном приложении рекомендуется использовать более продвинутое логирование

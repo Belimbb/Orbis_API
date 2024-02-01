@@ -4,14 +4,13 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="0a23d5f3-d191-4898-abe0-39a161fdbb75" name="Changes" comment="created buttons for multi request response (request doesn't work correct)">
-      <change afterPath="$PROJECT_DIR$/src/main/java/main/apiService/responseParsing/DirectorsParser.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/main/apiService/responseParsing/ResponseParser.java" afterDir="false" />
+    <list default="true" id="0a23d5f3-d191-4898-abe0-39a161fdbb75" name="Changes" comment="button Directors gives info (but only n/a, it doesn't work correct)">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app.properties" beforeDir="false" afterPath="$PROJECT_DIR$/app.properties" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/main/ChatBot.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/main/ChatBot.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/main/apiService/ResponseParser.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/main/apiService/responseParsing/CompanySummaryParser.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/main/apiService/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/main/apiService/User.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/main/requests/MultiRequest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/main/requests/MultiRequest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/main/apiService/ApiService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/main/apiService/ApiService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/main/apiService/responseParsing/DirectorsParser.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/main/apiService/responseParsing/DirectorsParser.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/main/apiService/responseParsing/ResponseParser.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/main/apiService/responseParsing/ResponseParser.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/main/ui/BotDialogHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/main/ui/BotDialogHandler.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -39,6 +38,9 @@
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
+  <component name="ProblemsViewState">
+    <option name="selectedTabId" value="QODANA_PROBLEMS_VIEW_TAB" />
+  </component>
   <component name="ProjectColorInfo">{
   &quot;customColor&quot;: &quot;&quot;,
   &quot;associatedIndex&quot;: 2
@@ -49,28 +51,33 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "Gradle.Download Sources.executor": "Run",
-    "Gradle.Orbis_API [:AppLauncher.main()].executor": "Debug",
-    "Gradle.Orbis_API [:Test.main()].executor": "Run",
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "git-widget-placeholder": "Backend__logic",
-    "ignore.virus.scanning.warn.message": "true",
-    "kotlin-language-version-configured": "true",
-    "last_opened_file_path": "C:/Users/PC/Documents/GitHub/CurrencyChatBot",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "nodejs_package_manager_path": "npm",
-    "project.structure.last.edited": "Modules",
-    "project.structure.proportion": "0.0",
-    "project.structure.side.proportion": "0.0",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;Gradle.Download Sources.executor&quot;: &quot;Run&quot;,
+    &quot;Gradle.Orbis_API [:AppLauncher.main()].executor&quot;: &quot;Run&quot;,
+    &quot;Gradle.Orbis_API [:Test.main()].executor&quot;: &quot;Run&quot;,
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;Backend__logic&quot;,
+    &quot;ignore.virus.scanning.warn.message&quot;: &quot;true&quot;,
+    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/PC/Documents/GitHub/CurrencyChatBot&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;project.structure.last.edited&quot;: &quot;Modules&quot;,
+    &quot;project.structure.proportion&quot;: &quot;0.0&quot;,
+    &quot;project.structure.side.proportion&quot;: &quot;0.0&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
-}]]></component>
+}</component>
+  <component name="QodanaReportsService">
+    <option name="descriptions">
+      <ReportDescription localRun="true" path="C:\Users\PC\AppData\Local\Temp\qodana_output\qodana.sarif.json" reportGuid="8798f39d-ee84-4b55-8154-aad2c3016123" reportId="Orbis_API/qodana/2024-01-28" />
+    </option>
+  </component>
   <component name="RunManager" selected="Application.AppLauncher">
     <configuration name="AppLauncher" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="main.AppLauncher" />
@@ -140,7 +147,12 @@
       <workItem from="1706364866132" duration="1469000" />
       <workItem from="1706384082783" duration="5316000" />
       <workItem from="1706427314686" duration="6243000" />
-      <workItem from="1706437974627" duration="4019000" />
+      <workItem from="1706437974627" duration="10317000" />
+      <workItem from="1706457811060" duration="1430000" />
+      <workItem from="1706538355889" duration="677000" />
+      <workItem from="1706552228949" duration="1209000" />
+      <workItem from="1706557686441" duration="2167000" />
+      <workItem from="1706646605232" duration="971000" />
     </task>
     <task id="LOCAL-00001" summary="Initial commit">
       <option name="closed" value="true" />
@@ -214,7 +226,15 @@
       <option name="project" value="LOCAL" />
       <updated>1706386293785</updated>
     </task>
-    <option name="localTasksCounter" value="10" />
+    <task id="LOCAL-00010" summary="button Directors gives info (but only n/a, it doesn't work correct)">
+      <option name="closed" value="true" />
+      <created>1706446112023</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1706446112023</updated>
+    </task>
+    <option name="localTasksCounter" value="11" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -230,20 +250,16 @@
     <MESSAGE value="Version: Alpha 1.0 (only base multi request work)" />
     <MESSAGE value="Fixed logger (now it works)&#10;a little file cleanup" />
     <MESSAGE value="created buttons for multi request response (request doesn't work correct)" />
-    <option name="LAST_COMMIT_MESSAGE" value="created buttons for multi request response (request doesn't work correct)" />
+    <MESSAGE value="button Directors gives info (but only n/a, it doesn't work correct)" />
+    <option name="LAST_COMMIT_MESSAGE" value="button Directors gives info (but only n/a, it doesn't work correct)" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
       <breakpoints>
-        <line-breakpoint enabled="true" type="java-method">
-          <url>file://$PROJECT_DIR$/src/main/java/main/apiService/responseParsing/DirectorsParser.java</url>
-          <line>11</line>
-          <properties class="main.apiService.responseParsing.DirectorsParser" method="parseApiResponse">
-            <option name="EMULATED" value="true" />
-            <option name="WATCH_EXIT" value="false" />
-          </properties>
-          <option name="timeStamp" value="4" />
-        </line-breakpoint>
+        <breakpoint enabled="true" type="java-exception">
+          <properties class="java.lang.IllegalStateException" package="java.lang" />
+          <option name="timeStamp" value="6" />
+        </breakpoint>
       </breakpoints>
     </breakpoint-manager>
   </component>

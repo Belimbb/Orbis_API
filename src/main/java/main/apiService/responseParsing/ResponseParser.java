@@ -23,9 +23,14 @@ public class ResponseParser {
         CompanySummaryParser summaryParser = new CompanySummaryParser();
         return summaryParser.parseApiResponse(jsonResponse);
     }
-    public List<Map<String, String>> parseDirectors(String jsonResponse) {
+    public List<Map<String, String>> parseAllDirectors(String jsonResponse) {
         DirectorsParser summaryParser = new DirectorsParser();
-        return summaryParser.parseApiResponse(jsonResponse);
+        return summaryParser.getAllDirectors(jsonResponse);
     }
+    public List<Map<String, String>> parseFirstThreeDirectors(String jsonResponse) {
+        DirectorsParser summaryParser = new DirectorsParser();
+        return summaryParser.getFirstThreeDirectors(jsonResponse);
+    }
+
 }
 

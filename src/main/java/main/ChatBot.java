@@ -38,7 +38,7 @@ public class ChatBot extends TelegramLongPollingBot {
     @Override
     public String getBotToken() { return this.botToken; }
     public void botRun() {
-        TelegramBotsApi api = null;
+        TelegramBotsApi api;
         try {
             api = new TelegramBotsApi(DefaultBotSession.class);
             api.registerBot(this);

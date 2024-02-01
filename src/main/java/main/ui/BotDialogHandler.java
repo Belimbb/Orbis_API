@@ -68,10 +68,11 @@ public class BotDialogHandler {
 
         // Преобразование JSON-ответа в Map<String, String>
         String jsonResponse = AppRegistry.getUser(chatId).getJsonResponse();
-        List<Map<String, String>> apiResponse = responseParser.parseDirectors(jsonResponse);
-
+        List<Map<String, String>> apiResponse = responseParser.parseFirstThreeDirectors(jsonResponse);
+        System.out.println("Arrays.toString(apiResponse.toArray()) = " + Arrays.toString(apiResponse.toArray()));
         // Форматирование ответа
         String formattedResponse = formatDirectorsSummary(apiResponse);
+        System.out.println("formattedResponse = " + formattedResponse);
 
         SendMessage message = messageFactory.createMessage(basicText + "\n" + formattedResponse);
         message.setReplyMarkup(ButtonFactory.getReplyKeyboardMarkup());
@@ -117,7 +118,11 @@ public class BotDialogHandler {
             formattedResponse.append("<b>Id Director:</b> ").append(director.getOrDefault("CPYCONTACTS_HEADER_IdDirector", "n/a")).append("\n");
             formattedResponse.append("<b>Function:</b> ").append(director.getOrDefault("CPYCONTACTS_MEMBERSHIP_Function", "n/a")).append("\n");
             formattedResponse.append("<b>Current/Previous:</b> ").append(director.getOrDefault("CPYCONTACTS_MEMBERSHIP_CurrentPrevious", "n/a")).append("\n");
-            formattedResponse.append("<b>Birthdate:</b> ").append(director.getOrDefault("CPYCONTACTS_HEADER_Birthdate", "n/a")).append("\n");
+
+            String birthdate = director.getOrDefault("CPYCONTACTS_HEADER_Birthdate", "n/a").substring(0, 11);
+            formattedResponse.append("<b>Birthdate:</b> ").append(birthdate).append("\n");
+
+            //formattedResponse.append("<b>Birthdate:</b> ").append(director.getOrDefault("CPYCONTACTS_HEADER_Birthdate", "n/a")).append("\n");
             formattedResponse.append("<b>Nationalities:</b> ").append(director.getOrDefault("CPYCONTACTS_HEADER_MultipleNationalitiesLabel", "n/a")).append("\n");
             formattedResponse.append("<b>Shareholder:</b> ").append(director.getOrDefault("CPYCONTACTS_MEMBERSHIP_IsAShareholderFormatted", "n/a")).append("\n\n");
         }
