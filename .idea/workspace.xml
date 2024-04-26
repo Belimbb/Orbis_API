@@ -4,19 +4,14 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="0a23d5f3-d191-4898-abe0-39a161fdbb75" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/gradle.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/build.gradle" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/gradle/wrapper/gradle-wrapper.jar" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/gradle/wrapper/gradle-wrapper.properties" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/gradlew" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/gradlew.bat" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/settings.gradle" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/Main.java" afterDir="false" />
+    <list default="true" id="0a23d5f3-d191-4898-abe0-39a161fdbb75" name="Changes" comment="button Directors gives info (but only n/a, it doesn't work correct)">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app.properties" beforeDir="false" afterPath="$PROJECT_DIR$/app.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/main/ChatBot.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/main/ChatBot.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/main/apiService/ApiService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/main/apiService/ApiService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/main/apiService/responseParsing/DirectorsParser.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/main/apiService/responseParsing/DirectorsParser.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/main/apiService/responseParsing/ResponseParser.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/main/apiService/responseParsing/ResponseParser.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/main/ui/BotDialogHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/main/ui/BotDialogHandler.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -28,29 +23,95 @@
       <ProjectState />
     </projectState>
   </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Class" />
+      </list>
+    </option>
+  </component>
   <component name="Git.Settings">
+    <option name="RECENT_BRANCH_BY_REPOSITORY">
+      <map>
+        <entry key="$PROJECT_DIR$" value="master" />
+      </map>
+    </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
-  <component name="ProjectColorInfo"><![CDATA[{
-  "customColor": "",
-  "associatedIndex": 2
-}]]></component>
+  <component name="ProblemsViewState">
+    <option name="selectedTabId" value="QODANA_PROBLEMS_VIEW_TAB" />
+  </component>
+  <component name="ProjectColorInfo">{
+  &quot;customColor&quot;: &quot;&quot;,
+  &quot;associatedIndex&quot;: 2
+}</component>
   <component name="ProjectId" id="2bEGTgLZ5CskAH6qvINjAvNWSxX" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "git-widget-placeholder": "master",
-    "kotlin-language-version-configured": "true",
-    "nodejs_package_manager_path": "npm",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;Gradle.Download Sources.executor&quot;: &quot;Run&quot;,
+    &quot;Gradle.Orbis_API [:AppLauncher.main()].executor&quot;: &quot;Run&quot;,
+    &quot;Gradle.Orbis_API [:Test.main()].executor&quot;: &quot;Run&quot;,
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;Backend__logic&quot;,
+    &quot;ignore.virus.scanning.warn.message&quot;: &quot;true&quot;,
+    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/PC/Documents/GitHub/CurrencyChatBot&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;project.structure.last.edited&quot;: &quot;Modules&quot;,
+    &quot;project.structure.proportion&quot;: &quot;0.0&quot;,
+    &quot;project.structure.side.proportion&quot;: &quot;0.0&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
-}]]></component>
+}</component>
+  <component name="QodanaReportsService">
+    <option name="descriptions">
+      <ReportDescription localRun="true" path="C:\Users\PC\AppData\Local\Temp\qodana_output\qodana.sarif.json" reportGuid="8798f39d-ee84-4b55-8154-aad2c3016123" reportId="Orbis_API/qodana/2024-01-28" />
+    </option>
+  </component>
+  <component name="RunManager" selected="Application.AppLauncher">
+    <configuration name="AppLauncher" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="main.AppLauncher" />
+      <module name="Orbis_API.main" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="main.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="Test" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="main.Test" />
+      <module name="Orbis_API.main" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="main.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Application.Test" />
+        <item itemvalue="Application.AppLauncher" />
+      </list>
+    </recent_temporary>
+  </component>
   <component name="SharedIndexes">
     <attachedChunks>
       <set>
@@ -68,11 +129,138 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1705772834815</updated>
-      <workItem from="1705772835980" duration="13000" />
+      <workItem from="1705772835980" duration="224000" />
+      <workItem from="1705773101163" duration="83000" />
+      <workItem from="1705782223406" duration="2972000" />
+      <workItem from="1705821921052" duration="3515000" />
+      <workItem from="1705828411486" duration="234000" />
+      <workItem from="1705834443983" duration="800000" />
+      <workItem from="1705941815617" duration="5350000" />
+      <workItem from="1705954855466" duration="2237000" />
+      <workItem from="1706018500504" duration="32568000" />
+      <workItem from="1706074991323" duration="1270000" />
+      <workItem from="1706193736758" duration="69000" />
+      <workItem from="1706296680876" duration="1070000" />
+      <workItem from="1706297885114" duration="1767000" />
+      <workItem from="1706299814552" duration="2148000" />
+      <workItem from="1706357062037" duration="3457000" />
+      <workItem from="1706364866132" duration="1469000" />
+      <workItem from="1706384082783" duration="5316000" />
+      <workItem from="1706427314686" duration="6243000" />
+      <workItem from="1706437974627" duration="10317000" />
+      <workItem from="1706457811060" duration="1430000" />
+      <workItem from="1706538355889" duration="677000" />
+      <workItem from="1706552228949" duration="1209000" />
+      <workItem from="1706557686441" duration="2167000" />
+      <workItem from="1706646605232" duration="971000" />
     </task>
+    <task id="LOCAL-00001" summary="Initial commit">
+      <option name="closed" value="true" />
+      <created>1705772930153</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1705772930153</updated>
+    </task>
+    <task id="LOCAL-00002" summary="rebuild to telegram bot (not working, in progress)">
+      <option name="closed" value="true" />
+      <created>1705822484719</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1705822484719</updated>
+    </task>
+    <task id="LOCAL-00003" summary="just working on helper/app settings classes">
+      <option name="closed" value="true" />
+      <created>1705827445809</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1705827445809</updated>
+    </task>
+    <task id="LOCAL-00004" summary="test one version (not working)">
+      <option name="closed" value="true" />
+      <created>1705957173015</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1705957173015</updated>
+    </task>
+    <task id="LOCAL-00005" summary="working code (start message, inform message)">
+      <option name="closed" value="true" />
+      <created>1706026702484</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1706026702484</updated>
+    </task>
+    <task id="LOCAL-00006" summary="working select search option Keyboard (only tech logic)">
+      <option name="closed" value="true" />
+      <created>1706044163484</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1706044163484</updated>
+    </task>
+    <task id="LOCAL-00007" summary="Version: Alpha 1.0 (only base multi request work)">
+      <option name="closed" value="true" />
+      <created>1706056676902</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1706056676902</updated>
+    </task>
+    <task id="LOCAL-00008" summary="Fixed logger (now it works)&#10;a little file cleanup">
+      <option name="closed" value="true" />
+      <created>1706302394775</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1706302394775</updated>
+    </task>
+    <task id="LOCAL-00009" summary="created buttons for multi request response (request doesn't work correct)">
+      <option name="closed" value="true" />
+      <created>1706386293785</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1706386293785</updated>
+    </task>
+    <task id="LOCAL-00010" summary="button Directors gives info (but only n/a, it doesn't work correct)">
+      <option name="closed" value="true" />
+      <created>1706446112023</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1706446112023</updated>
+    </task>
+    <option name="localTasksCounter" value="11" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="Initial commit" />
+    <MESSAGE value="rebuild to telegram bot (not working, in progress)" />
+    <MESSAGE value="just working on helper/app settings classes" />
+    <MESSAGE value="test one version (not working)" />
+    <MESSAGE value="working code (start message, inform message)" />
+    <MESSAGE value="working select search option Keyboard (only tech logic)" />
+    <MESSAGE value="Version: Alpha 1.0 (only base multi request work)" />
+    <MESSAGE value="Fixed logger (now it works)&#10;a little file cleanup" />
+    <MESSAGE value="created buttons for multi request response (request doesn't work correct)" />
+    <MESSAGE value="button Directors gives info (but only n/a, it doesn't work correct)" />
+    <option name="LAST_COMMIT_MESSAGE" value="button Directors gives info (but only n/a, it doesn't work correct)" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <breakpoint enabled="true" type="java-exception">
+          <properties class="java.lang.IllegalStateException" package="java.lang" />
+          <option name="timeStamp" value="6" />
+        </breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
 </project>
