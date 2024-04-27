@@ -35,6 +35,8 @@ public class ConfigLoader {
             System.out.println(""" 
                     Config file ./app.properties not found! Please rename file ./app.properties-example to ./app.properties
                     and configure it like this:
+                    #Orbis API token
+                    APP_ORBIS_TOKEN
                     # Bot credentials:
                     APP_NAME=OrbisBot
                     APP_BOT_NAME=here your bot name

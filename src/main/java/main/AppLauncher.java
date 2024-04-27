@@ -2,11 +2,9 @@ package main;
 
 import main.systemSettings.AppRegistry;
 import main.systemSettings.ConfigLoader;
+
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-
-import java.util.HashMap;
-import java.util.Map;
 
 // Company's (Owners)= https://api.bvdinfo.com/v1/orbis/Companies/data?query=
 //Contacts (Directors) = https://api.bvdinfo.com/v1/orbis/contacts/data?query=
@@ -19,11 +17,12 @@ public class AppLauncher {
 
         AppRegistry.initDefaults();
 
+        String orbisToken = ConfigLoader.get("APP_ORBIS_TOKEN");
         String appName = ConfigLoader.get("APP_NAME");
         String botName = ConfigLoader.get("APP_BOT_NAME");
         String botToken = ConfigLoader.get("APP_BOT_TOKEN");
 
-        ChatBot bot = new ChatBot(appName, botName, botToken);
+        ChatBot bot = new ChatBot(orbisToken, appName, botName, botToken);
         bot.botRun();
     }
 }

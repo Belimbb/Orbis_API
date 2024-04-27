@@ -2,14 +2,21 @@ package main.systemSettings;
 
 import java.util.*;
 
+import lombok.Getter;
+import lombok.Setter;
+
 import main.ChatBot;
 import main.apiService.User;
+
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 public class AppRegistry {
 
     private static final Logger LOGGER = LoggerFactory.getLogger(AppRegistry.class);
+    // ChatBot
+    @Getter
+    @Setter
     private static ChatBot chatBot;
     private static final Map<Long, User> users = new HashMap<>();
 
@@ -19,15 +26,6 @@ public class AppRegistry {
     public static void initDefaults() {
         LOGGER.info("Initializing default settings.");
 
-    }
-
-    // ChatBot
-    public static void setChatBot(ChatBot bot) {
-        chatBot = bot;
-    }
-
-    public static ChatBot getChatBot() {
-        return chatBot;
     }
 
     // Users
