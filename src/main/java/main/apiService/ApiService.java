@@ -4,9 +4,11 @@ import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 import com.google.gson.JsonElement;
 import com.google.gson.JsonParser;
+
 import okhttp3.OkHttpClient;
 import okhttp3.Request;
 import okhttp3.Response;
+
 import java.io.IOException;
 import java.util.concurrent.TimeUnit;
 
@@ -14,8 +16,8 @@ public class ApiService {
     private final OkHttpClient client;
     private final String token;
 
-    public ApiService(String apiToken) {
-        this.token = apiToken;
+    public ApiService(String orbisToken) {
+        this.token = orbisToken;
         this.client = new OkHttpClient.Builder()
                 .connectTimeout(15, TimeUnit.SECONDS)
                 .readTimeout(300, TimeUnit.SECONDS)

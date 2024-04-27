@@ -1,5 +1,6 @@
 package main;
 
+import lombok.AllArgsConstructor;
 import main.apiService.User;
 import main.systemSettings.AppRegistry;
 
@@ -17,22 +18,17 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import java.util.Arrays;
-import java.util.HashMap;
 
 import static main.systemSettings.AppRegistry.removeUser;
 
+@AllArgsConstructor
 public class ChatBot extends TelegramLongPollingBot {
     private static final Logger LOGGER = LoggerFactory.getLogger(ChatBot.class);
+    private final String orbisToken;
     private final String appName;
     private final String botName;
     private final String botToken;
-    private HashMap<String, String> commandMap;
 
-    public ChatBot(String appName, String botName, String botToken) {
-        this.appName = appName;
-        this.botName = botName;
-        this.botToken = botToken;
-    }
     @Override
     public String getBotUsername() { return this.botName; }
     @Override
@@ -73,7 +69,7 @@ public class ChatBot extends TelegramLongPollingBot {
             userName = update.getCallbackQuery().getFrom().getLastName();
         }
         User user = new User(chatId, firstName, userName);
-        user.setToken("2LK951a1674f439eee11abd50278abee30dc");
+        user.setOrbisToken(orbisToken);
         LOGGER.info("addUser: {} {}", chatId, firstName);
         AppRegistry.addUser(user);
     }
@@ -118,11 +114,11 @@ public class ChatBot extends TelegramLongPollingBot {
             String[] btnCommand = data.split("_");
             LOGGER.info("btnCommand: {} btnCommand[] {}  User: {} {}", data,
                     Arrays.toString(btnCommand), chatId, AppRegistry.getUser(chatId).getName());
-            if (btnCommand[0].toLowerCase().equals("getinformation")){
+            if (btnCommand[0].equalsIgnoreCase("getinformation")){
                 doCallMultiRequest(chatId, update, btnCommand);
             }else {
-                switch (btnCommand[0].toLowerCase()) {
-                    case "directors" -> doDirectorsRequest(chatId);
+                if (btnCommand[0].equalsIgnoreCase("directors")) {
+                    doDirectorsRequest(chatId);
                 }
             }
         }

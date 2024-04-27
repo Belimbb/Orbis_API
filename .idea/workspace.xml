@@ -4,15 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="0a23d5f3-d191-4898-abe0-39a161fdbb75" name="Changes" comment="button Directors gives info (but only n/a, it doesn't work correct)">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app.properties" beforeDir="false" afterPath="$PROJECT_DIR$/app.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/main/ChatBot.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/main/ChatBot.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/main/apiService/ApiService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/main/apiService/ApiService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/main/apiService/responseParsing/DirectorsParser.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/main/apiService/responseParsing/DirectorsParser.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/main/apiService/responseParsing/ResponseParser.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/main/apiService/responseParsing/ResponseParser.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/main/ui/BotDialogHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/main/ui/BotDialogHandler.java" afterDir="false" />
-    </list>
+    <list default="true" id="0a23d5f3-d191-4898-abe0-39a161fdbb75" name="Changes" comment="button Directors gives info (but only n/a, it doesn't work correct)" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -111,15 +103,6 @@
         <item itemvalue="Application.AppLauncher" />
       </list>
     </recent_temporary>
-  </component>
-  <component name="SharedIndexes">
-    <attachedChunks>
-      <set>
-        <option value="jdk-17.0.10-corretto-17.0.10-f644763e9732-24fca987" />
-        <option value="jdk-17.0.9-corretto-17.0.9-f644763e9732-ebaef533" />
-        <option value="jdk-20.0.2-azul-20.0.2-f644763e9732-d86f2a68" />
-      </set>
-    </attachedChunks>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">

@@ -1,5 +1,7 @@
 package main.ui;
 
+import lombok.Getter;
+
 import main.apiService.ApiService;
 import main.apiService.responseParsing.ResponseParser;
 import main.requests.MultiRequest;
@@ -17,15 +19,13 @@ import java.util.*;
 public class BotDialogHandler {
     private static final String START_PHOTO = "https://www.bvdinfo.com/en-gb/-/media/product-logos/orbis.png?h=592&iar=0&w=800&hash=FD098D9A01606D12046B2DD0C7972ADA";
 
+    @Getter
     private final MessageFactory messageFactory;
-    private Long chatId;
+    private final Long chatId;
 
     public BotDialogHandler(Long chatId) {
         this.messageFactory = new MessageFactory(chatId);
         this.chatId = chatId;
-    }
-    public MessageFactory getMessageFactory() {
-        return messageFactory;
     }
 
 
@@ -47,7 +47,7 @@ public class BotDialogHandler {
         String firstURL = MultiRequest.getMultiRequestUrl();
         String query = MultiRequest.createMultiRequestQuery(AppRegistry.getUser(chatId).getAllSearchCriteria());
 
-        ResponseParser responseParser = new ResponseParser(new ApiService(AppRegistry.getUser(chatId).getToken()));
+        ResponseParser responseParser = new ResponseParser(new ApiService(AppRegistry.getUser(chatId).getOrbisToken()));
         AppRegistry.getUser(chatId).setJsonResponse(responseParser.sendRequest(firstURL, query));
 
         // Преобразование JSON-ответа в Map<String, String>
@@ -64,7 +64,7 @@ public class BotDialogHandler {
     public SendMessage createDirectorsMessage(){
         String basicText = "<b>Directors</b>";
 
-        ResponseParser responseParser = new ResponseParser(new ApiService(AppRegistry.getUser(chatId).getToken()));
+        ResponseParser responseParser = new ResponseParser(new ApiService(AppRegistry.getUser(chatId).getOrbisToken()));
 
         // Преобразование JSON-ответа в Map<String, String>
         String jsonResponse = AppRegistry.getUser(chatId).getJsonResponse();

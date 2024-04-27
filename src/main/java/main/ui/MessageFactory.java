@@ -1,24 +1,20 @@
 package main.ui;
 
+import lombok.AllArgsConstructor;
+
 import org.telegram.telegrambots.meta.api.methods.ParseMode;
 import org.telegram.telegrambots.meta.api.methods.send.SendMessage;
 import org.telegram.telegrambots.meta.api.methods.send.SendPhoto;
 import org.telegram.telegrambots.meta.api.methods.updatingmessages.EditMessageText;
 import org.telegram.telegrambots.meta.api.objects.InputFile;
-import org.telegram.telegrambots.meta.api.objects.replykeyboard.InlineKeyboardMarkup;
-
-import java.nio.charset.StandardCharsets;
 
 /**
  * MVC: View (Class helper)
  * @author AlekseyB belovmladshui@gmail.com
  */
+@AllArgsConstructor
 public class MessageFactory {
-    private static Long chatId;
-
-    public MessageFactory(Long chatId) {
-        this.chatId = chatId;
-    }
+    private final Long chatId;
 
     // Creating a plain text message
     public SendMessage createMessage(String text) {
@@ -53,6 +49,7 @@ public class MessageFactory {
     public EditMessageText createEditMessage(Long chatId, Integer messageId, String messageText) {
         return createEditMessage(chatId, messageId, "", messageText);
     }
+
     public EditMessageText createEditMessage(Long chatId, Integer messageId, String emoji, String messageText) {
         EditMessageText newMessage = new EditMessageText();
         newMessage.setChatId(String.valueOf(chatId));
