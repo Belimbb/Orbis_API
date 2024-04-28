@@ -8,10 +8,6 @@ import org.telegram.telegrambots.meta.api.methods.send.SendPhoto;
 import org.telegram.telegrambots.meta.api.methods.updatingmessages.EditMessageText;
 import org.telegram.telegrambots.meta.api.objects.InputFile;
 
-/**
- * MVC: View (Class helper)
- * @author AlekseyB belovmladshui@gmail.com
- */
 @AllArgsConstructor
 public class MessageFactory {
     private final Long chatId;

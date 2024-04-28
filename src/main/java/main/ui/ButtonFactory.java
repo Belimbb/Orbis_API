@@ -8,13 +8,9 @@ import org.telegram.telegrambots.meta.api.objects.replykeyboard.ReplyKeyboardMar
 import org.telegram.telegrambots.meta.api.objects.replykeyboard.buttons.KeyboardRow;
 
 import java.util.*;
-/**
- * MVC: View (Class helper)
- * @author AlekseyB belovmladshui@gmail.com
- */
 public class ButtonFactory {
 
-    // Метод для создания постоянной клавиатуры пользователя
+    // Method for creating a persistent user keyboard
     public static ReplyKeyboardMarkup getReplyKeyboardMarkup() {
         ReplyKeyboardMarkup replyKeyboardMarkup = new ReplyKeyboardMarkup();
         List<KeyboardRow> keyboard = new ArrayList<>();
@@ -30,7 +26,7 @@ public class ButtonFactory {
         return replyKeyboardMarkup;
     }
 
-    // Метод для создания инлайн-клавиатуры на основе предоставленных параметров
+    // Method for creating an inline keyboard based on provided parameters
     public static InlineKeyboardMarkup createKeyboardForCriteriaSelection(Long chatId, Map<String, String> options, String prefix) {
         List<InlineKeyboardButton> buttons = new ArrayList<>();
         Map<String, String> selectedCriteria = AppRegistry.getUser(chatId).getAllSearchCriteria();
@@ -55,8 +51,7 @@ public class ButtonFactory {
         return buildInlineKeyboard(buttons);
     }
 
-
-    // Вспомогательный метод для создания кнопки
+    // Auxiliary method for creating a button
     private static InlineKeyboardButton createButton(String text, String callbackData) {
         InlineKeyboardButton button = new InlineKeyboardButton();
         button.setText(text);
@@ -64,7 +59,7 @@ public class ButtonFactory {
         return button;
     }
 
-    // Вспомогательный метод для построения клавиатуры из списка кнопок
+    // Auxiliary method for building a keyboard from a list of buttons
     private static InlineKeyboardMarkup buildInlineKeyboard(List<InlineKeyboardButton> buttons) {
         InlineKeyboardMarkup inlineKeyboardMarkup = new InlineKeyboardMarkup();
         List<List<InlineKeyboardButton>> keyboard = new ArrayList<>();
@@ -85,5 +80,4 @@ public class ButtonFactory {
         inlineKeyboardMarkup.setKeyboard(keyboard);
         return inlineKeyboardMarkup;
     }
-
 }
