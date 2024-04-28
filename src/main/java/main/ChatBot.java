@@ -84,7 +84,6 @@ public class ChatBot extends TelegramLongPollingBot {
     @Override
     public void onUpdateReceived(Update update) {
         Long chatId = getChatId(update);
-        // check or add user
         checkOrAddUser(chatId, update);
 
         // Messages processing
@@ -123,10 +122,7 @@ public class ChatBot extends TelegramLongPollingBot {
             }
         }
     }
-    /*
-     *
-     * Message Commands
-     * */
+
     public void doCommandStart(Long chatId) {
         SendPhoto ms = getDH(chatId).createWelcomeMessage();
         try {
@@ -152,12 +148,12 @@ public class ChatBot extends TelegramLongPollingBot {
             }else {
                 user.addSearchCriteria(command[1], "");
             }
-            // Отправка сообщения в чат
+            // Sending a message to the chat
             EditMessageText ms = getDH(chatId).onInformMessage(chatId, update.getCallbackQuery().getMessage().getMessageId());
             sendMessage(ms);
 
         }else {
-            // Отправка сообщения в чат - форма для ввода данных
+            // Sending a message to chat - data entry form
             SendMessage ms = getDH(chatId).createSearchCriteriaForm();
             sendMessage(ms);
         }

@@ -1,7 +1,5 @@
 package main.requests;
 
-import main.CountryFilter;
-
 import java.util.List;
 import java.util.stream.Collectors;
 

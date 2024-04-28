@@ -12,10 +12,6 @@ import org.telegram.telegrambots.meta.api.methods.send.SendPhoto;
 import org.telegram.telegrambots.meta.api.methods.updatingmessages.EditMessageText;
 
 import java.util.*;
-/**
- * MVC: View
- * @author AlekseyB belovmladshui@gmail.com
- */
 public class BotDialogHandler {
     private static final String START_PHOTO = "https://www.bvdinfo.com/en-gb/-/media/product-logos/orbis.png?h=592&iar=0&w=800&hash=FD098D9A01606D12046B2DD0C7972ADA";
 
@@ -82,12 +78,12 @@ public class BotDialogHandler {
     private String formatCompanySummary(Map<String, String> apiResponse) {
         StringBuilder formattedResponse = new StringBuilder();
 
-        // Добавляем каждое значение из ответа API
+        // Add each value from the API response
         formattedResponse.append("<b>BvdID:</b> ").append(apiResponse.getOrDefault("BVDID", "n/a")).append("\n");
         formattedResponse.append("<b>Name:</b> ").append(apiResponse.getOrDefault("NAME", "n/a")).append("\n");
         formattedResponse.append("<b>Email or Website:</b> ").append(apiResponse.getOrDefault("EmailOrWebsite", "n/a")).append("\n");
 
-        // Форматирование National ID и National ID Label
+        // Formatting National ID and National ID Label
         String[] nationalIds = apiResponse.getOrDefault("NATIONAL_ID", "").split(",");
         String[] nationalIdLabels = apiResponse.getOrDefault("NATIONAL_ID_LABEL", "").split(",");
         formattedResponse.append("<b>National ID:</b> ");
@@ -134,7 +130,7 @@ public class BotDialogHandler {
         Map<String, String> searchCriteria = AppRegistry.getUser(chatId).getAllSearchCriteria();
         StringBuilder formMessage = new StringBuilder("Please write information for search:\n");
 
-        // Для каждого ключа в searchCriteria добавляем строку в форму
+        // For each key in the searchCriteria add a line to the form
         for (String criteriaKey : searchCriteria.keySet()) {
             if (getInformationOptions().containsKey(criteriaKey)) {
                 String criteriaName = getInformationOptions().get(criteriaKey);
@@ -148,30 +144,22 @@ public class BotDialogHandler {
     public void updateSearchCriteriaFromMessage(String message) {
         Map<String, String> searchCriteria = AppRegistry.getUser(chatId).getAllSearchCriteria();
 
-        // Перебор введенных пользователем строк
+        // Enumerating user-entered strings
         String[] lines = message.split("\n");
         for (String line : lines) {
             line = line.trim();
             for (String criteriaKey : searchCriteria.keySet()) {
                 if (!line.isEmpty()) {
-                    // Обновление критерия поиска, если строка соответствует
+                    // Updates the search criterion if the string matches
                     searchCriteria.put(criteriaKey, line);
-                    break; // Выход из цикла после обновления
+                    break;
                 }
             }
         }
 
         AppRegistry.getUser(chatId).setAllSearchCriteria(searchCriteria);
     }
-    /*
-    public SendMessage createSettingsMessage() {
-        String text = "⚙ <b>Settings</b>";
-        SendMessage message = messageFactory.createMessage(text);
-        message.setReplyMarkup(ButtonFactory.getInlineKeyboardMarkup(chatId, getSettingsOptions(), "settings"));
-        return message;
-    }
 
-     */
     public EditMessageText onInformMessage(Long chatId, Integer messageId) {
         String text = "<b>Select a search option from this list</b>";
         EditMessageText message = messageFactory.createEditMessage(chatId, messageId, text);

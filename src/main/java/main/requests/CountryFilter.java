@@ -1,4 +1,4 @@
-package main;
+package main.requests;
 
 import lombok.Getter;
 

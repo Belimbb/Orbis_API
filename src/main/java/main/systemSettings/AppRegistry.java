@@ -14,14 +14,10 @@ import org.slf4j.LoggerFactory;
 public class AppRegistry {
 
     private static final Logger LOGGER = LoggerFactory.getLogger(AppRegistry.class);
-    // ChatBot
     @Getter
     @Setter
     private static ChatBot chatBot;
     private static final Map<Long, User> users = new HashMap<>();
-
-    private AppRegistry() {
-    }
 
     public static void initDefaults() {
         LOGGER.info("Initializing default settings.");
@@ -49,7 +45,7 @@ public class AppRegistry {
         return new HashMap<>(users);
     }
 
-    // Конфигурационные параметры
+    // Configuration parameters
     public static String getConfVal(String key) {
         return ConfigLoader.get(key);
     }

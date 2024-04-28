@@ -42,8 +42,8 @@ public class ApiService {
             Gson gson = new GsonBuilder().setPrettyPrinting().create();
             return gson.toJson(jsonElement);
         } catch (IOException e) {
-            e.printStackTrace(); // В реальном приложении рекомендуется использовать более продвинутое логирование
-            return null; // или выбросить пользовательское исключение
+            e.printStackTrace();
+            return null;
         }
     }
 }
